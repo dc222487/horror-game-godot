@@ -1,20 +1,59 @@
-[gd_scene load_steps=4 format=3 uid="uid://drc4dprluinkm"]
+[gd_scene load_steps=6 format=4 uid="uid://drc4dprluinkm"]
 
-[ext_resource type="PackedScene" uid="uid://d4lvl7flnhb7y" path="res://glb_models/stairs.glb" id="1_mtq0t"]
+[ext_resource type="Material" uid="uid://f1nl8lv5o2ho" path="res://materials/house_material3.tres" id="1_mtq0t"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mtq0t"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k762u"]
+resource_name = "Material.001"
+cull_mode = 2
+albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
+roughness = 0.5
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mtq0t"]
-points = PackedVector3Array(-1.62558, -1.66814, 1.41929, -1.45235, -1.97863, 0.899886, -1.45235, -1.97863, 1.14998, -1.23627, -1.66814, 1.80892, -1.62558, 1.58206, 1.41929, 0.797557, -1.97863, -1.35033, -1.45235, 2.02137, 0.899886, -0.781123, -1.97863, 1.14998, 1.59225, -1.66814, -1.0196, -1.23627, -1.41794, 1.80892, -1.23627, 1.58206, 1.8086, -1.45235, 2.02137, 1.14998, 1.20262, -1.66814, -1.40892, 1.46878, -1.97863, -1.35033, 0.797557, 2.02137, -1.35033, 1.46878, -1.97863, -1.10024, 1.59225, 1.58206, -1.0196, -0.781123, 2.02137, 1.14998, 1.20262, 1.58206, -1.40892, 1.46878, 2.02137, -1.35033, 1.46878, 2.02137, -1.10024)
+[sub_resource type="ArrayMesh" id="ArrayMesh_2sexr"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"format": 34896613377,
+"index_count": 180,
+"index_data": PackedByteArray("AAABAAIAAwAAAAIAAwACAAQABAACAAEAAAADAAUABAAFAAMABAABAAYABwAGAAEABwAEAAYABwABAAgAAAAIAAEACAAJAAcACAAKAAkACwAHAAkACwAEAAcACwAJAAoACAAMAAoACwAKAAwAAAAMAAgADAANAAsADAAOAA0ADwALAA0ADwANAA4AEAAEAAsAEAALAA8ABAAQAAUADAARAA4ADwAOABEAAAARAAwAEQASAA8AEQATABIAFAAPABIAFAASABMAEAAPABQAEQAVABMAFAATABUAFQAWABQAEAAUABYAFQAXABYAEAAWABcAEQAYABUAFQAYABcAEAAXABgAEQAAABgAGAAZABAAGAAaABkAGwAQABkAGwAZABoABQAQABsAGAAcABoAGAAAABwAGwAaABwABQAbAB0AHAAdABsAAAAFAB4AHAAfAB0AHAAAAB8AHwAFAB0AHwAAAB4AHwAeAAUA"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 32,
+"vertex_data": PackedByteArray("AAAAAP7/AAD//6Ip/v8AAP//AAD+/wAAAAAAAAAAAAD//wAAAAAAAAAA//8AAAAA//+iKQAAAADC3aIpAAAAAMLdoin//wAAwt3ITgAAAADC3chO//8AAKW7yE4AAAAApbvITv7/AACluyp0AAAAAKW7KnT+/wAAgpoqdAAAAAAcVgm6AAAAAIKaKnT+/wAAgpoAlwAAAACCmgCX/v8AALx4AJcAAAAAvHgAl/7/AAC8eAm6AAAAALx4Cbr+/wAAHFYJuv//AAAcVi3gAAAAABxWLeD+/wAAgTMt4AAAAACBMy3g//8AAIEz//8AAAAAAAD///7/AACBM////v8AAA==")
+}]
+blend_shape_mode = 0
 
-[node name="stairs" instance=ExtResource("1_mtq0t")]
+[sub_resource type="ArrayMesh" id="ArrayMesh_sn3d8"]
+resource_name = "stairs_Cube_001"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"attribute_data": PackedByteArray("/18AAGhq/z//X/8/aGpwN7Fz6S6xc3A3Cn2gJgp96S7/n+AM/58AAAqY4AyCjocVCpiHFb+FLx6Cji8ev4WgJv9f////n/+//5////9f/7//H/9//1//P/9f/3//H/8//1//f2hq/z9oav9//1//P/9f/3//n/+//1//vwqYHrP/nx6zgo54qgqYeKpoao6IaGr/f7FzFZGxc46ICn1emQp9FZG/hdChv4VemYKO0KH/X2PzrGmazP9fmsysaWPz/x9kcw9Zmkz/H5pMD1lkc/9fY/O7aZrM/1+azLtpY/P/H2Rz2liaTP8fmkzaWGRz/19j8xFpmsz/X5rMEWlj8/8fZHM5V5pM/x+aTDlXZHP/X2PzH2mazP9fmswfaWPz/x9kc0pYmkz/H5pMSlhkc/9fY/PuaZrM/1+azO5pY/P/H2RztVmaTP8fmky1WWRz/19j80homsz/X5rMSGhj8x7T/z//3/9/HtP/f//f/z//H2RzrVmaTP8fmkytWWRz"),
+"format": 34896613399,
+"index_count": 180,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAwAEAAUAAAAEAAMABAAGAAcAAAAGAAQACAAAAAkACgAAAAgACwAAAAoABgAAAAsACwAKAAwABgALAA0ADQALAA4ABgANAA8AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHQAfACAAHQAhAB8AHAAhAB0AHwAhACIAIwAcACQAJQAcACMAIQAcACUAJQAjACYAIQAlACcAJwAlACgAIQAnACkAKQAnACoAIQApACsALAAtAC4ALAAvAC0AMAAxADIAMAAzADEANAA1ADYANAA3ADUAOAA5ADoAOAA7ADkAPAA9AD4APAA/AD0AQABBAEIAQABDAEEARABFAEYARABHAEUASABJAEoASABLAEkATABNAE4ATABPAE0AUABRAFIAUABTAFEAVABVAFYAVABXAFUAWABZAFoAWABbAFkAXABdAF4AXABfAF0A"),
+"material": SubResource("StandardMaterial3D_k762u"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 96,
+"vertex_data": PackedByteArray("AAAAAP7//7///6Ip/v//v///AAD+//+/wt2iKf///7+lu8hO/v//v8LdyE7///+/gpoqdP7//7+luyp0/v//v4Ez///+//+/AAD///7//7+BMy3g////vxxWCbr///+/HFYt4P7//7+8eACX/v//v7x4Cbr+//+/gpoAl/7//78AAAAA/v9U1QAA//8AAFTVAAD///7/VNUAAAAAAABU1QAAAAAAAP+///8AAP7//7///wAAAAD/vwAAAAD+//+///8AAAAAVNX//6Ip/v9U1f//oikAAFTV//8AAP7/VNX//wAAAAD//wAA//8AAP//AAAAAAAA//+BMy3gAAD//4Ez//8AAP//HFYJugAA//8cVi3gAAD//8LdoikAAP////+iKQAA//+lu8hOAAD//8LdyE4AAP//gpoqdAAA//+luyp0AAD//7x4AJcAAP//gpoAlwAA//+8eAm6AAD//8Ldoin//6oqwt3ITgAAqirC3aIpAACqKsLdyE7//6oqwt2iKQAA/z///6Ip/v//P8Ldoin///8///+iKQAA/z+lu8hO/v+qKqW7KnQAAKoqpbvITgAAqiqluyp0/v+qKqW7yE4AAP8/wt3ITv///z+lu8hO/v//P8LdyE4AAP8/gpoqdP7/qiqCmgCXAACqKoKaKnQAAKoqgpoAl/7/qiqCmip0AAD/P6W7KnT+//8/gpoqdP7//z+luyp0AAD/P7x4AJf+/6oqvHgJugAAqiq8eACXAACqKrx4Cbr+/6oqvHgAlwAA/z+CmgCX/v//P7x4AJf+//8/gpoAlwAA/z8cVgm6//+qKhxWLeAAAKoqHFYJugAAqiocVi3g/v+qKhxWCboAAP8/vHgJuv7//z8cVgm6////P7x4CboAAP8/gTMt4P//qiqBM///AACqKoEzLeAAAKoqgTP///7/qiqBM////v///wAA//8AAP//gTP//wAA//8AAP///v///4EzLeAAAP8/HFYt4P7//z+BMy3g////PxxWLeAAAP8//////////////////////////////////////////////////////////////////////////////////////1TVVNVU1VTVVNVU1VTVVNUAAP9/AAD/fwAA/38AAP9/qiqqKqoqqiqqKqoqqiqqKv+//7//v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//v/+//7/+v/+//7//v/+//7+qKqoqqiqqKqoqqiqqKqoq/v//f/7//3/+//9/////f6oqqiqqKqoqqiqqKqoqqir+//9//v//f/7//3/+//9/qiqqKqoqqiqqKqoqqiqqKv7//3/+//9//v//f////3+qKqoqqiqqKqoqqiqqKqoq/v//f////3////9//v//f6oqqiqqKqoqqiqqKqoqqir+//9//v//f/7//3////9/qiqqKqoqqiqqKqoqqiqqKv9//7//f/+//3//v/9//7/+//9//v//f/7//3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_2sexr")
 
-[node name="Wooden Steps" parent="." index="0"]
-material_override = SubResource("StandardMaterial3D_mtq0t")
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ge1bc"]
+points = PackedVector3Array(1.01587, -0.666642, -1.01587, -0.57134, 1.01587, 1.01587, -0.57134, 1.01587, -1.01587, -0.999951, -1, 1, 1, -1, 1, -0.999951, -1, -1, -0.999951, 1, 1, -0.999951, 1, -1, 1, -1, -1, 1.01587, -0.666642, 1.01587, -0.0315961, 0.476116, -1.01587, 0.476129, -0.0634423, 1.01587, -0.0315961, 0.476116, 1.01587, 0.476129, -0.0634423, -1.01587, 0.761712, -0.380853, 1.01587, 0.761712, -0.380853, -1.01587)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Wooden Steps" index="0"]
+[node name="stairs" type="Node3D"]
+
+[node name="Cube_001" type="MeshInstance3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, 2.5, 0, 0, 0, 2, 0, 0, 0)
+material_override = ExtResource("1_mtq0t")
+mesh = SubResource("ArrayMesh_sn3d8")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube_001"]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Wooden Steps/StaticBody3D" index="0"]
-shape = SubResource("ConvexPolygonShape3D_mtq0t")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_001/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_ge1bc")
