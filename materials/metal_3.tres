@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bv1jove6robnj"]
+
+[ext_resource type="Texture2D" uid="uid://ciiawkdll1yha" path="res://textures/Texturelabs_Stone_170S.jpg" id="1_nj3lr"]
+[ext_resource type="Texture2D" uid="uid://c16vf2y8qq4hm" path="res://textures/stone_normalmap.png" id="2_nj3lr"]
+
+[resource]
+albedo_color = Color(0.537011, 0.537011, 0.537011, 1)
+albedo_texture = ExtResource("1_nj3lr")
+metallic = 1.0
+roughness = 0.5
+normal_enabled = true
+normal_texture = ExtResource("2_nj3lr")

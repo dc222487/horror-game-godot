@@ -1,0 +1,110 @@
+[gd_scene load_steps=13 format=3 uid="uid://cba4ag2874rdx"]
+
+[ext_resource type="Script" uid="uid://bqsj2y8autdoy" path="res://general_scripts/door.gd" id="1_oop7k"]
+[ext_resource type="Material" uid="uid://dggr7a5i4xksn" path="res://materials/iron_fence.tres" id="2_8uqrj"]
+[ext_resource type="Texture2D" uid="uid://q6m7p778way7" path="res://textures/stone.png" id="3_oop7k"]
+[ext_resource type="Texture2D" uid="uid://c16vf2y8qq4hm" path="res://textures/stone_normalmap.png" id="4_al61n"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_t3tcx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jy65v"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_apdd5"]
+albedo_color = Color(0.609124, 0.541938, 0.396921, 1)
+albedo_texture = ExtResource("3_oop7k")
+metallic = 1.0
+roughness = 0.5
+normal_enabled = true
+normal_texture = ExtResource("4_al61n")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_l435u"]
+radial_segments = 32
+
+[sub_resource type="Animation" id="Animation_m6kou"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hinge:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_l435u"]
+resource_name = "close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hinge:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1fsns"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hinge:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.5708, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4owcv"]
+_data = {
+&"RESET": SubResource("Animation_m6kou"),
+&"close": SubResource("Animation_l435u"),
+&"open": SubResource("Animation_1fsns")
+}
+
+[node name="door" type="Node3D"]
+script = ExtResource("1_oop7k")
+
+[node name="hinge" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.636527, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="hinge"]
+transform = Transform3D(1.25, 0, 0, 0, 2.19, 0, 0, 0, 0.1, 0.636527, 0, 0)
+material_override = ExtResource("2_8uqrj")
+mesh = SubResource("BoxMesh_t3tcx")
+skeleton = NodePath("../..")
+
+[node name="door" type="StaticBody3D" parent="hinge/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hinge/MeshInstance3D/door"]
+shape = SubResource("BoxShape3D_jy65v")
+
+[node name="knob" type="Node3D" parent="hinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.636527, 0, 0)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="hinge/knob"]
+transform = Transform3D(0.125782, 5.53828e-05, -2.08972e-06, -2.18407e-06, -0.000125354, -0.110273, -0.000105577, 0.0659842, -0.00020949, 0.46758, 0.108323, 0.122639)
+material_override = SubResource("StandardMaterial3D_apdd5")
+mesh = SubResource("CylinderMesh_l435u")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Node3D")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="hinge/knob"]
+transform = Transform3D(0.125782, 5.53828e-05, -2.08972e-06, -2.18407e-06, -0.000125354, -0.110273, -0.000105577, 0.0659842, -0.00020949, 0.46758, 0.108323, -0.111494)
+material_override = SubResource("StandardMaterial3D_apdd5")
+mesh = SubResource("CylinderMesh_l435u")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Node3D")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_4owcv")
+}

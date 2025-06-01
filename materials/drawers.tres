@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://du840bubxp04p"]
+
+[ext_resource type="Texture2D" uid="uid://cph6gfaajb1no" path="res://textures/wood_tree.jpg" id="1_mbm81"]
+[ext_resource type="Texture2D" uid="uid://dfow4obopmqrc" path="res://textures/wood_normalmap2.png" id="2_xpr08"]
+
+[resource]
+albedo_color = Color(0.278431, 0.133333, 0.0862745, 1)
+albedo_texture = ExtResource("1_mbm81")
+roughness = 0.7
+normal_enabled = true
+normal_scale = 0.25
+normal_texture = ExtResource("2_xpr08")

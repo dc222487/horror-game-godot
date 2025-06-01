@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwk6l2ibwwxh4"]
+
+[ext_resource type="Texture2D" uid="uid://c4eecihhf8gwf" path="res://textures/crate_1.jpg" id="1_flyca"]
+[ext_resource type="Texture2D" uid="uid://drc2fl4vkhxrk" path="res://textures/crate_normalmap.png" id="2_fsu28"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hx028"]
+albedo_texture = ExtResource("1_flyca")
+roughness = 0.7
+normal_enabled = true
+normal_scale = 0.5
+normal_texture = ExtResource("2_fsu28")
+uv1_scale = Vector3(3, 2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_u70tc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nbh5v"]
+
+[node name="crate" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_hx028")
+mesh = SubResource("BoxMesh_u70tc")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_nbh5v")

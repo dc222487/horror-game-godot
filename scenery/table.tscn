@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://dgfu1t3d2455r"]
+
+[ext_resource type="Texture2D" uid="uid://cph6gfaajb1no" path="res://textures/wood_tree.jpg" id="1_6omhd"]
+[ext_resource type="Texture2D" uid="uid://dfow4obopmqrc" path="res://textures/wood_normalmap2.png" id="2_dvcnb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dvcnb"]
+albedo_color = Color(0.600875, 0.346906, 0.167848, 1)
+albedo_texture = ExtResource("1_6omhd")
+roughness = 0.7
+normal_enabled = true
+normal_texture = ExtResource("2_dvcnb")
+uv1_scale = Vector3(3, 2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6tyje"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6omhd"]
+size = Vector3(3, 1, 2)
+
+[node name="table" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 0.1, 0, 0, 0, 2, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_dvcnb")
+mesh = SubResource("BoxMesh_6tyje")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 1.29325, -0.555903, 0.79065)
+material_override = SubResource("StandardMaterial3D_dvcnb")
+mesh = SubResource("BoxMesh_6tyje")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 1.29325, -0.555903, -0.792946)
+material_override = SubResource("StandardMaterial3D_dvcnb")
+mesh = SubResource("BoxMesh_6tyje")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, -1.24058, -0.555903, 0.79065)
+material_override = SubResource("StandardMaterial3D_dvcnb")
+mesh = SubResource("BoxMesh_6tyje")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, -1.24058, -0.555903, -0.792946)
+material_override = SubResource("StandardMaterial3D_dvcnb")
+mesh = SubResource("BoxMesh_6tyje")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.437316, 0)
+shape = SubResource("BoxShape3D_6omhd")

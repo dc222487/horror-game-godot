@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://wcmgemp4ivjk"]
+
+[ext_resource type="PackedScene" uid="uid://b5nro3ifrop7s" path="res://glb_models/tree.glb" id="1_6c24e"]
+[ext_resource type="Material" uid="uid://du840bubxp04p" path="res://materials/drawers.tres" id="2_c7n6n"]
+[ext_resource type="Texture2D" uid="uid://b6gwu3hr7cw4t" path="res://textures/grass.png" id="3_queuc"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ux27e"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_lh435"]
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_ux27e")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_233mc"]
+albedo_texture = ExtResource("3_queuc")
+roughness = 0.5
+normal_enabled = true
+normal_scale = 1.36
+normal_texture = SubResource("NoiseTexture2D_lh435")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6c24e"]
+size = Vector3(1.92975, 9.53438, 1.95361)
+
+[node name="tree" instance=ExtResource("1_6c24e")]
+
+[node name="Zylinder" parent="." index="0"]
+material_override = ExtResource("2_c7n6n")
+
+[node name="Icokugel" parent="." index="1"]
+material_override = SubResource("StandardMaterial3D_233mc")
+
+[node name="Icokugel_001" parent="." index="2"]
+material_override = SubResource("StandardMaterial3D_233mc")
+
+[node name="Icokugel_002" parent="." index="3"]
+material_override = SubResource("StandardMaterial3D_233mc")
+
+[node name="Icokugel_003" parent="." index="4"]
+material_override = SubResource("StandardMaterial3D_233mc")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0119934, 4.69205, 0.230101)
+shape = SubResource("BoxShape3D_6c24e")

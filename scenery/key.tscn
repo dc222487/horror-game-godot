@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://uhe078f2amo8"]
+
+[ext_resource type="Script" uid="uid://b03gh3spvomg3" path="res://general_scripts/code_paper.gd" id="1_4tdn0"]
+[ext_resource type="Material" uid="uid://cearpyk8bcjj" path="res://materials/metal.tres" id="1_rqye3"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4tdn0"]
+radial_segments = 24
+
+[sub_resource type="BoxMesh" id="BoxMesh_48qxd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hu3l1"]
+size = Vector3(1, 0.148575, 2.33447)
+
+[node name="key" type="RigidBody3D"]
+contact_monitor = true
+max_contacts_reported = 3
+script = ExtResource("1_4tdn0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.00970827, 0, 0, 0, 0.2, 0, 0, 0)
+material_override = ExtResource("1_rqye3")
+mesh = SubResource("CylinderMesh_4tdn0")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/key")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0536067, 0, 0, 0, 0.0100723, 0, 0, 0, 0.278016, 0, 0, 0.225635)
+material_override = ExtResource("1_rqye3")
+mesh = SubResource("BoxMesh_48qxd")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/key")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0536067, 0, 0, 0, 0.00770565, 0, 0, 0, 0.0241886, 0.0537259, 0, 0.33824)
+material_override = ExtResource("1_rqye3")
+mesh = SubResource("BoxMesh_48qxd")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/key")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0335534, 0, 0, 0, 0.00770565, 0, 0, 0, 0.0241886, 0.0429022, 0, 0.289841)
+material_override = ExtResource("1_rqye3")
+mesh = SubResource("BoxMesh_48qxd")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/key")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0335534, 0, 0, 0, 0.00770565, 0, 0, 0, 0.0241886, 0.0429022, 0, 0.240311)
+material_override = ExtResource("1_rqye3")
+mesh = SubResource("BoxMesh_48qxd")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/key")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0335534, 0, 0, 0, 0.00770565, 0, 0, 0, 0.0241886, 0.0429022, 0, 0.189224)
+material_override = ExtResource("1_rqye3")
+mesh = SubResource("BoxMesh_48qxd")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/key")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.000102234, 0.131943)
+shape = SubResource("BoxShape3D_hu3l1")
+
+[connection signal="body_entered" from="." to="." method="hit_obj"]

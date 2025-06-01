@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://dn5vewdraoj0y"]
+
+[ext_resource type="Script" uid="uid://ccyr4lhei3lyb" path="res://player/player.gd" id="1_oul6g"]
+[ext_resource type="Script" uid="uid://brauj5vs7d5ei" path="res://player/fp_cam.gd" id="2_rkbax"]
+[ext_resource type="Script" uid="uid://dqd8kijmb3wg1" path="res://player/player_interact.gd" id="3_g1dw6"]
+[ext_resource type="Script" uid="uid://bpv0yped1lk0t" path="res://player/fov.gd" id="3_qjkh3"]
+[ext_resource type="PackedScene" uid="uid://bnvj5la80lo4b" path="res://ui/player_ui.tscn" id="4_yw30f"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
+radius = 0.3
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_oul6g"]
+
+[node name="player" type="CharacterBody3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+collision_layer = 3
+collision_mask = 3
+floor_max_angle = 1.13446
+script = ExtResource("1_oul6g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_kqu6x")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_oul6g")
+
+[node name="head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.754918, 0)
+script = ExtResource("2_rkbax")
+
+[node name="Camera3D" type="Camera3D" parent="head"]
+script = ExtResource("3_qjkh3")
+
+[node name="RayCast3D" type="RayCast3D" parent="head"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, -1.5, 0)
+collision_mask = 3
+script = ExtResource("3_g1dw6")
+
+[node name="player_ui" parent="." instance=ExtResource("4_yw30f")]

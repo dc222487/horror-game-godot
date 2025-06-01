@@ -1,0 +1,70 @@
+[gd_scene load_steps=8 format=3 uid="uid://186kqobqn5jf"]
+
+[ext_resource type="Script" uid="uid://1hpt0yqqb84f" path="res://general_scripts/door_bell.gd" id="1_7fcfu"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_cyrio"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7fcfu"]
+albedo_color = Color(0.625597, 0.625597, 0.625597, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cyrio"]
+size = Vector3(1, 1.46381, 0.804688)
+
+[sub_resource type="Animation" id="Animation_1ckd6"]
+resource_name = "press"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D2:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.234114), Vector3(0, 0, 0.0323303), Vector3(0, 0, 0.234114)]
+}
+
+[sub_resource type="Animation" id="Animation_0f6x2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0.234114)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rp8vv"]
+_data = {
+&"RESET": SubResource("Animation_0f6x2"),
+&"press": SubResource("Animation_1ckd6")
+}
+
+[node name="door_bell" type="Node3D"]
+script = ExtResource("1_7fcfu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.898926, 0, 0, 0, 1.46805, 0, 0, 0, 0.438935, 0, 0, 0)
+mesh = SubResource("BoxMesh_cyrio")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.556543, 0, 0, 0, 0.877726, 0, 0, 0, 0.438935, 0, 0, 0.234114)
+material_override = SubResource("StandardMaterial3D_7fcfu")
+mesh = SubResource("BoxMesh_cyrio")
+
+[node name="door_bell" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door_bell"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00253296, 0.0976563)
+shape = SubResource("BoxShape3D_cyrio")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_rp8vv")
+}

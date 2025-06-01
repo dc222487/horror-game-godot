@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://bodmi2io4ofu7"]
+
+[ext_resource type="Script" uid="uid://bs532da08ymec" path="res://general_scripts/enemy.gd" id="1_niajt"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_0y524"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_niajt"]
+size = Vector3(1, 1.92944, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_niajt"]
+
+[node name="enemy" type="CharacterBody3D"]
+script = ExtResource("1_niajt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_0y524")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0216064, 0)
+shape = SubResource("BoxShape3D_niajt")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true
+radius = 1.0
+
+[node name="chasecast" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.0894817, -0.447598)
+enabled = false
+target_position = Vector3(0, -10, 0)
+
+[node name="chasecast2" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.0894817, -0.447598)
+enabled = false
+target_position = Vector3(5, -10, 0)
+
+[node name="chasecast3" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.0894817, -0.447598)
+enabled = false
+target_position = Vector3(-5, -10, 0)
+
+[node name="chasecast4" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.0894817, -0.447598)
+enabled = false
+target_position = Vector3(-2.5, -10, 0)
+
+[node name="chasecast5" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.0894817, -0.447598)
+enabled = false
+target_position = Vector3(2.5, -10, 0)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.498927, 0, 0, 0, 1, 0, 0.452276, -0.612023)
+mesh = SubResource("BoxMesh_niajt")
+
+[connection signal="velocity_computed" from="NavigationAgent3D" to="." method="compute_velocity"]

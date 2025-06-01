@@ -1,0 +1,82 @@
+[gd_scene load_steps=11 format=3 uid="uid://cb5axsrox1w2c"]
+
+[ext_resource type="Texture2D" uid="uid://dv6b57x6q1r5d" path="res://textures/wood.png" id="1_b1wm0"]
+[ext_resource type="Texture2D" uid="uid://npl12ajd6whk" path="res://textures/dirty_carpet.webp" id="2_mlkvg"]
+[ext_resource type="Texture2D" uid="uid://dloydsv2lqim4" path="res://textures/wood_normalmap.png" id="2_u3aga"]
+[ext_resource type="Texture2D" uid="uid://4xyis5rvyi5v" path="res://textures/carpet_normalmap.png" id="4_7n4it"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u3aga"]
+albedo_color = Color(0.733221, 0.579338, 0.134684, 1)
+albedo_texture = ExtResource("1_b1wm0")
+normal_enabled = true
+normal_texture = ExtResource("2_u3aga")
+uv1_scale = Vector3(3.88, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7n4it"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5hkti"]
+albedo_color = Color(0.169967, 0.23804, 0.645627, 1)
+albedo_texture = ExtResource("2_mlkvg")
+roughness = 0.7
+normal_enabled = true
+normal_scale = 0.5
+normal_texture = ExtResource("4_7n4it")
+uv1_scale = Vector3(0.735, 0.605, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_5l231"]
+radial_segments = 32
+rings = 16
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ettcu"]
+radial_segments = 32
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uyvci"]
+size = Vector3(4.35345, 1.57946, 1.42184)
+
+[node name="couch" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.16524, 0, 0, 0, 0.564322, 0, 0, 0, 0.788948, 0, -0.278852, 0)
+material_override = SubResource("StandardMaterial3D_u3aga")
+mesh = SubResource("BoxMesh_7n4it")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.15769, 0, 0, 0, -1.7232e-08, -1.46591, 0, 0.394221, -6.40769e-08, 0, 0.166851, -0.560368)
+material_override = SubResource("StandardMaterial3D_u3aga")
+mesh = SubResource("BoxMesh_7n4it")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.22034, 0, 0, 0, 0.683551, 0, 0, 0, 1.24598, -0.858508, 0, -0.0294449)
+material_override = SubResource("StandardMaterial3D_5hkti")
+mesh = SubResource("SphereMesh_5l231")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.22034, 0, 0, 0, 0.683551, 0, 0, 0, 1.24598, 0.884693, 0, -0.0294449)
+material_override = SubResource("StandardMaterial3D_5hkti")
+mesh = SubResource("SphereMesh_5l231")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.22034, 0, 0, 0, -2.84374e-08, -1.02979, 0, 0.650571, -4.50136e-08, 0.835044, 0.562267, -0.420492)
+material_override = SubResource("StandardMaterial3D_5hkti")
+mesh = SubResource("SphereMesh_5l231")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.22034, 0, 0, 0, -2.84374e-08, -1.02979, 0, 0.650571, -4.50136e-08, -0.85947, 0.562267, -0.413357)
+material_override = SubResource("StandardMaterial3D_5hkti")
+mesh = SubResource("SphereMesh_5l231")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.539302, 0, 0, 0, -2.49792e-08, -0.552847, 0, 0.571456, -2.41657e-08, -1.90025, 0.0801569, 0)
+material_override = SubResource("StandardMaterial3D_5hkti")
+mesh = SubResource("CylinderMesh_ettcu")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.539302, 0, 0, 0, -2.49792e-08, -0.552847, 0, 0.571456, -2.41657e-08, 1.89583, 0.0801569, 0)
+material_override = SubResource("StandardMaterial3D_5hkti")
+mesh = SubResource("CylinderMesh_ettcu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00691032, 0.28715, -0.113788)
+shape = SubResource("BoxShape3D_uyvci")

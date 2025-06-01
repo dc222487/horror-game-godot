@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://so07d5tab0vt"]
+
+[node name="pause_menu" type="CanvasLayer"]
+layer = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 362.0
+offset_bottom = 645.0
+color = Color(0.443305, 0.122266, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_right = 356.0
+offset_bottom = 645.0
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 4.0
+offset_top = 28.0
+offset_right = 357.0
+offset_bottom = 124.0
+theme_override_font_sizes/normal_font_size = 70
+bbcode_enabled = true
+text = "[center]PAUSED"
+
+[node name="resume" type="Button" parent="."]
+offset_left = 76.0
+offset_top = 124.0
+offset_right = 277.0
+offset_bottom = 201.0
+theme_override_font_sizes/font_size = 50
+text = "Resume"
+
+[node name="settings" type="Button" parent="."]
+offset_left = 76.0
+offset_top = 217.0
+offset_right = 277.0
+offset_bottom = 294.0
+theme_override_font_sizes/font_size = 50
+text = "Settings"
+
+[node name="controls" type="Button" parent="."]
+offset_left = 72.0
+offset_top = 298.0
+offset_right = 284.0
+offset_bottom = 375.0
+theme_override_font_sizes/font_size = 50
+text = "Controls"
+
+[node name="main_menu" type="Button" parent="."]
+offset_left = 43.0
+offset_top = 398.0
+offset_right = 323.0
+offset_bottom = 475.0
+theme_override_font_sizes/font_size = 50
+text = "Main Menu"
+
+[node name="quit_game" type="Button" parent="."]
+offset_left = 43.0
+offset_top = 503.0
+offset_right = 323.0
+offset_bottom = 580.0
+theme_override_font_sizes/font_size = 50
+text = "Quit Game"

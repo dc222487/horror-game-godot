@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxh1w6osmktav"]
+
+[ext_resource type="Material" uid="uid://bv1jove6robnj" path="res://materials/metal_3.tres" id="1_avy3q"]
+[ext_resource type="Material" uid="uid://dw71hq7u034ce" path="res://materials/metal_2.tres" id="2_tyvng"]
+[ext_resource type="Texture2D" uid="uid://13q05bqj65w" path="res://textures/tofu.png" id="3_i0sv4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2850c"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_avy3q"]
+size = Vector3(0.494263, 1.36188, 1.04883)
+
+[node name="powerbox" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.340788, 0, 0, 0, 1.34943, 0, 0, 0, 1, 0, 0, 0)
+material_override = ExtResource("1_avy3q")
+mesh = SubResource("BoxMesh_2850c")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.301844, 0, 0, 0, 1.19522, 0, 0, 0, 0.885723, 0.0419982, 0, 0)
+material_override = ExtResource("2_tyvng")
+mesh = SubResource("BoxMesh_2850c")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.174202, 0, 0, 0, 0.268612, 0, 0, 0, 0.089803, 0.18614, 0.0275516, -0.276712)
+material_override = ExtResource("1_avy3q")
+mesh = SubResource("BoxMesh_2850c")
+
+[node name="Decal" type="Decal" parent="."]
+transform = Transform3D(0.0698713, -0.633671, 0.0100294, 0.00271897, -0.00979032, -0.637509, 0.633744, 0.0699052, 0.00162935, 0.0670276, 0.163603, 0.125172)
+size = Vector3(1.05002, 0.683167, 1.11688)
+texture_albedo = ExtResource("3_i0sv4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0508423, 0.0105896, -0.0244141)
+shape = SubResource("BoxShape3D_avy3q")

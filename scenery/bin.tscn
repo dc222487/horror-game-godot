@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://dutv0agmoa84d"]
+
+[ext_resource type="Material" uid="uid://dw71hq7u034ce" path="res://materials/metal_2.tres" id="1_7pulr"]
+[ext_resource type="Texture2D" uid="uid://ciiawkdll1yha" path="res://textures/Texturelabs_Stone_170S.jpg" id="2_68cfx"]
+[ext_resource type="Texture2D" uid="uid://c16vf2y8qq4hm" path="res://textures/stone_normalmap.png" id="3_1qqhj"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_tp2o5"]
+radial_segments = 24
+cap_top = false
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yg8yb"]
+cull_mode = 2
+albedo_color = Color(0.808998, 0.808998, 0.808998, 1)
+albedo_texture = ExtResource("2_68cfx")
+metallic = 1.0
+roughness = 0.5
+normal_enabled = true
+normal_texture = ExtResource("3_1qqhj")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5w0np"]
+radial_segments = 24
+
+[sub_resource type="BoxMesh" id="BoxMesh_3pleq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xggn0"]
+size = Vector3(1.14754, 1.39047, 1.28516)
+
+[node name="bin" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.13625, 0, 0, 0, 0.660462, 0, 0, 0, 1.14416, 0, 0, 0)
+material_override = ExtResource("1_7pulr")
+mesh = SubResource("CylinderMesh_tp2o5")
+
+[node name="bin_lid" type="Node3D" parent="."]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="bin_lid"]
+transform = Transform3D(1.3, 0, 0, 0, -0.136, 1.96295e-07, 0, -2.05354e-08, -1.3, 0, 0.528693, 0)
+material_override = SubResource("StandardMaterial3D_yg8yb")
+mesh = SubResource("CylinderMesh_tp2o5")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/bin")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="bin_lid"]
+transform = Transform3D(0.538369, 0, 0, 0, 0.0740201, 0, 0, 0, 0.538369, 0, 0.672045, 0)
+material_override = SubResource("StandardMaterial3D_yg8yb")
+mesh = SubResource("CylinderMesh_5w0np")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/bin")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="bin_lid"]
+transform = Transform3D(1.69543, 0, 0, 0, 0.10412, 0, 0, 0, 0.315475, 0.000141382, 0.558743, 0.000375032)
+material_override = SubResource("StandardMaterial3D_yg8yb")
+mesh = SubResource("BoxMesh_3pleq")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/bin")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00156128, 0.0458926, 0.00710207)
+shape = SubResource("BoxShape3D_xggn0")

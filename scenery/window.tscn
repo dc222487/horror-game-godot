@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1omd0fmxypyo"]
+
+[ext_resource type="PackedScene" uid="uid://b3gqb0glhxu05" path="res://glb_models/window.glb" id="1_lxc2h"]
+[ext_resource type="Material" uid="uid://du840bubxp04p" path="res://materials/drawers.tres" id="2_rbtal"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2yeun"]
+seamless = true
+as_normal_map = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2yeun"]
+transparency = 1
+albedo_color = Color(0.904617, 0.699102, 0.647766, 0.0431373)
+roughness = 0.52
+normal_enabled = true
+normal_scale = 9.27
+normal_texture = SubResource("NoiseTexture2D_2yeun")
+subsurf_scatter_enabled = true
+subsurf_scatter_strength = 0.1
+refraction_scale = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kh8jl"]
+size = Vector3(2.03076, 2.02759, 0.262878)
+
+[node name="window" instance=ExtResource("1_lxc2h")]
+
+[node name="Cube" parent="." index="0"]
+material_override = ExtResource("2_rbtal")
+
+[node name="Cube_001" parent="." index="1"]
+material_override = SubResource("StandardMaterial3D_2yeun")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0115256, 0.0336011, -0.0043211)
+shape = SubResource("BoxShape3D_kh8jl")

@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://b3u3582vngqw8"]
+
+[ext_resource type="Texture2D" uid="uid://dedufelbuu4t" path="res://textures/carpet.png" id="1_ra2c2"]
+[ext_resource type="Material" uid="uid://du840bubxp04p" path="res://materials/drawers.tres" id="2_6s47g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ka46"]
+albedo_texture = ExtResource("1_ra2c2")
+uv1_scale = Vector3(1.875, 9.15, 2)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_brrpp"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_qi4a5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ra2c2"]
+size = Vector3(1.96204, 1.48235, 2.44821)
+
+[node name="toilet_paper" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.39198, 0, 0, 0, -2.6747e-08, -1.42082, 0, 0.6119, -6.21059e-08, 0, 0, -0.0300598)
+material_override = SubResource("StandardMaterial3D_8ka46")
+mesh = SubResource("CylinderMesh_brrpp")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.713689, 0, 0, 0, -3.47759e-08, -0.713689, 0, 0.79558, -3.11963e-08, 0, 0, -0.0300598)
+mesh = SubResource("CylinderMesh_brrpp")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.57341, 0, 0, 0, -1.68627e-08, -0.731989, 0, 0.385774, -3.19962e-08, -0.402345, -0.0408625, 0.951755)
+material_override = ExtResource("2_6s47g")
+mesh = SubResource("BoxMesh_qi4a5")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.57341, 0, 0, 0, -1.68627e-08, -0.731989, 0, 0.385774, -3.19962e-08, -0.402345, -0.00388142, -0.983404)
+material_override = ExtResource("2_6s47g")
+mesh = SubResource("BoxMesh_qi4a5")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.340516, 0, 0, 0, -2.16913e-08, -1.03704, 0, 0.496238, -4.53307e-08, -1.11424, -0.0038816, -0.983229)
+material_override = ExtResource("2_6s47g")
+mesh = SubResource("BoxMesh_qi4a5")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.340516, 0, 0, 0, -2.16913e-08, -1.03704, 0, 0.496238, -4.53307e-08, -1.11424, -0.0038816, 0.953377)
+material_override = ExtResource("2_6s47g")
+mesh = SubResource("BoxMesh_qi4a5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.325623, 0.00656891, -0.0154572)
+shape = SubResource("BoxShape3D_ra2c2")

@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://bt26xp0hhlsjv"]
+
+[ext_resource type="PackedScene" uid="uid://h7wr1iew7741" path="res://glb_models/bush.glb" id="1_pmfxi"]
+[ext_resource type="Texture2D" uid="uid://b6gwu3hr7cw4t" path="res://textures/grass.png" id="2_e732o"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ux27e"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_lh435"]
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_ux27e")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_233mc"]
+albedo_texture = ExtResource("2_e732o")
+roughness = 0.5
+normal_enabled = true
+normal_scale = 1.36
+normal_texture = SubResource("NoiseTexture2D_lh435")
+
+[node name="bush" instance=ExtResource("1_pmfxi")]
+
+[node name="Sphere" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_233mc")
