@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://cjennqjwcqcf6"]
+
+[ext_resource type="Texture2D" uid="uid://dedufelbuu4t" path="res://textures/carpet.png" id="1_4twcr"]
+[ext_resource type="Texture2D" uid="uid://g1yi3ug6vfnh" path="res://textures/carpet_normalmap2.png" id="2_65cax"]
+
+[resource]
+resource_name = "Material.001"
+cull_mode = 2
+albedo_color = Color(0.102305, 0.107315, 0.241174, 1)
+albedo_texture = ExtResource("1_4twcr")
+normal_enabled = true
+normal_texture = ExtResource("2_65cax")

@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://c2k5b4lh5vbq3"]
+
+[ext_resource type="Texture2D" uid="uid://bupaigiw57hh" path="res://textures/money.png" id="1_7mn07"]
+[ext_resource type="Script" uid="uid://06a3a7n7uce2" path="res://general_scripts/money.gd" id="1_pxluk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pxluk"]
+albedo_texture = ExtResource("1_7mn07")
+uv1_scale = Vector3(12, 14, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_304t3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x5a71"]
+albedo_texture = ExtResource("1_7mn07")
+uv1_scale = Vector3(12, 80, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7mn07"]
+size = Vector3(1.03906, 0.4104, 1.04895)
+
+[node name="money" type="Node3D"]
+script = ExtResource("1_pxluk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.373205, 0, 0, 0, 1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_pxluk")
+mesh = SubResource("BoxMesh_304t3")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.02209, 0, 0, 0, 0.357078, 0, 0, 0, 1.03659, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_x5a71")
+mesh = SubResource("BoxMesh_304t3")
+
+[node name="money" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="money"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00622559, -0.00335693)
+shape = SubResource("BoxShape3D_7mn07")

@@ -42,7 +42,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_87tf3")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n70rx"]
-size = Vector3(2.10674, 2.03778, 2.10783)
+size = Vector3(1.55581, 2.03778, 2.10783)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bb42x"]
 
@@ -222,7 +222,7 @@ skeleton = NodePath("")
 [node name="safe" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="safe"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0482559, -0.0126648, -0.0268021)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32372, -0.0126648, -0.0268021)
 shape = SubResource("BoxShape3D_n70rx")
 
 [node name="hinge" type="Node3D" parent="."]

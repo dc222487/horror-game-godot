@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=3 uid="uid://cv0hsj8am3isq"]
+
+[ext_resource type="Script" uid="uid://dctd7b5fnmu5v" path="res://general_scripts/ending.gd" id="1_s5f0n"]
+
+[sub_resource type="Animation" id="Animation_2eh68"]
+resource_name = "fade"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/RichTextLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 5, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_s5f0n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/RichTextLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bfxxk"]
+_data = {
+&"RESET": SubResource("Animation_s5f0n"),
+&"fade": SubResource("Animation_2eh68")
+}
+
+[node name="ending" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s5f0n")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1150.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 1.0
+offset_top = 228.0
+offset_right = 1150.0
+offset_bottom = 495.0
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center]You escaped the house"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_bfxxk")
+}

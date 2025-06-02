@@ -8,8 +8,11 @@ func _ready() -> void:
 	door.locked = true 
 func ring_bell():
 	if $AnimationPlayer.current_animation != "press" and times_rung < 2:
+		$button.play()
 		times_rung += 1 
 		$AnimationPlayer.play("press")
+		await get_tree().create_timer(0.5, false).timeout
+		$door_bell2.play()
 		if times_rung >= 2:
 			await get_tree().create_timer(4.0, false).timeout
 			ui.set_task("Enter the house")

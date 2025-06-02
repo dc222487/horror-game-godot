@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bodmi2io4ofu7"]
+[gd_scene load_steps=6 format=3 uid="uid://bodmi2io4ofu7"]
 
 [ext_resource type="Script" uid="uid://bs532da08ymec" path="res://general_scripts/enemy.gd" id="1_niajt"]
+[ext_resource type="PackedScene" uid="uid://d4dx8ccyoqcc1" path="res://scenery/monster_enemy.tscn" id="2_0y524"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_0y524"]
 
@@ -13,6 +14,7 @@ script = ExtResource("1_niajt")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00219, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_0y524")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -25,31 +27,52 @@ radius = 1.0
 
 [node name="chasecast" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.09168, -0.447598)
-enabled = false
 target_position = Vector3(0, -10, 0)
+
+[node name="killcast" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.279756, 0)
+
+[node name="killcast" type="RayCast3D" parent="killcast"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+enabled = false
+target_position = Vector3(0, -1.5, 0)
 
 [node name="chasecast2" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.09168, -0.447598)
-enabled = false
 target_position = Vector3(5, -10, 0)
 
 [node name="chasecast3" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.09168, -0.447598)
-enabled = false
 target_position = Vector3(-5, -10, 0)
 
 [node name="chasecast4" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.09168, -0.447598)
-enabled = false
 target_position = Vector3(-2.5, -10, 0)
 
 [node name="chasecast5" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.09168, -0.447598)
-enabled = false
 target_position = Vector3(2.5, -10, 0)
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.498927, 0, 0, 0, 1, 0, 1.45447, -0.612023)
+visible = false
 mesh = SubResource("BoxMesh_niajt")
 
+[node name="monster_enemy" parent="." instance=ExtResource("2_0y524")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.752314, 0)
+
+[node name="head" parent="monster_enemy" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7613, 0)
+
+[node name="lower_arm" parent="monster_enemy/body/upper_r_arm" index="1"]
+transform = Transform3D(0.893561, 0.087405, 0.440351, 0.087405, 0.928225, -0.361605, -0.440351, 0.361605, 0.821786, 1.17414, 0, 0)
+
+[node name="lower_arm" parent="monster_enemy/body/upper_l_arm" index="1"]
+transform = Transform3D(0.96132, -0.035785, -0.273098, -0.035785, 0.966892, -0.252661, 0.273098, 0.252661, 0.928213, -1.2041, -0.00764406, 0)
+
+[node name="jumpscare_cam" type="Camera3D" parent="."]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 1.61025, -1.11006)
+
 [connection signal="velocity_computed" from="NavigationAgent3D" to="." method="compute_velocity"]
+
+[editable path="monster_enemy"]

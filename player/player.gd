@@ -3,9 +3,15 @@ extends CharacterBody3D
 
 var SPEED = 3.5
 const JUMP_VELOCITY = 4.5
-
+@export var footstep_sounds: Array[AudioStream]
+@onready var rng = RandomNumberGenerator.new()
 var crouching = false 
 
+func foosteps():
+	if !$feet.playing:
+		$feet.stream = footstep_sounds[rng.randi_range(0, footstep_sounds.size() - 1)]
+		$feet.play()
+		
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("crouch"):
 		crouching = !crouching
@@ -34,6 +40,7 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("left", "right", "forward", "backward")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
+		foosteps()
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
 	else:

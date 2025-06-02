@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dm53bh46ulvhf"]
+[gd_scene load_steps=40 format=3 uid="uid://dm53bh46ulvhf"]
 
 [ext_resource type="Texture2D" uid="uid://b6gwu3hr7cw4t" path="res://textures/grass.png" id="1_safpt"]
 [ext_resource type="PackedScene" uid="uid://dn5vewdraoj0y" path="res://player/player.tscn" id="2_hjsbj"]
@@ -9,13 +9,17 @@
 [ext_resource type="PackedScene" uid="uid://bmg60eyk86qmy" path="res://scenery/code_paper.tscn" id="5_safpt"]
 [ext_resource type="PackedScene" uid="uid://cba4ag2874rdx" path="res://scenery/gate_door.tscn" id="7_vnv7o"]
 [ext_resource type="PackedScene" uid="uid://dfbfvlyfiaimx" path="res://scenery/outside_light.tscn" id="8_d5x7l"]
+[ext_resource type="AudioStream" uid="uid://dmo5od78lrbnv" path="res://sounds/566180__scholzi982__footstep_carpet_01.wav" id="10_574oa"]
 [ext_resource type="Script" uid="uid://r7phsl5x8pyp" path="res://general_scripts/flashlight.gd" id="10_ukwr8"]
 [ext_resource type="PackedScene" uid="uid://uhe078f2amo8" path="res://scenery/key.tscn" id="11_pb8y7"]
 [ext_resource type="PackedScene" uid="uid://dutv0agmoa84d" path="res://scenery/bin.tscn" id="12_hy0rb"]
+[ext_resource type="AudioStream" uid="uid://c4b2c2h0t57ae" path="res://sounds/218115__mastersdisaster__switch-on-livingroom.wav" id="13_368ro"]
 [ext_resource type="PackedScene" uid="uid://bt26xp0hhlsjv" path="res://scenery/bush.tscn" id="13_mxp4k"]
 [ext_resource type="PackedScene" uid="uid://wcmgemp4ivjk" path="res://scenery/tree.tscn" id="14_d7v53"]
 [ext_resource type="PackedScene" uid="uid://bodmi2io4ofu7" path="res://scenery/enemy.tscn" id="15_ta7ci"]
 [ext_resource type="PackedScene" uid="uid://cjoriee14asbw" path="res://scenery/destination.tscn" id="16_lh335"]
+[ext_resource type="PackedScene" uid="uid://b6e61v7xec8jp" path="res://scenery/scene_change_trigger.tscn" id="17_lh335"]
+[ext_resource type="AudioStream" uid="uid://culp7wj3ehnlh" path="res://sounds/459977__florianreichelt__soft-wind.mp3" id="18_u6cys"]
 
 [sub_resource type="Gradient" id="Gradient_cwqvt"]
 offsets = PackedFloat32Array(0, 0.634328, 1)
@@ -485,7 +489,8 @@ mesh = SubResource("QuadMesh_0qmeg")
 skeleton = NodePath("../..")
 
 [node name="player" parent="." instance=ExtResource("2_hjsbj")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.96794, 1.49082, 9.87365)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.96794, 1.49082, -5.64016)
+footstep_sounds = Array[AudioStream]([ExtResource("10_574oa")])
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.67559, 0.737277, 0, -0.737277, 0.67559, 0, 6.67269, 0)
@@ -517,6 +522,10 @@ light_energy = 5.0
 spot_range = 15.0
 spot_angle = 35.0
 script = ExtResource("10_ukwr8")
+
+[node name="sound" type="AudioStreamPlayer3D" parent="flashlight"]
+stream = ExtResource("13_368ro")
+max_distance = 15.0
 
 [node name="key" parent="." node_paths=PackedStringArray("positions", "door") instance=ExtResource("11_pb8y7")]
 positions = [NodePath("../outside_stuff/rand_positions/rand_pos"), NodePath("../outside_stuff/rand_positions/rand_pos2"), NodePath("../outside_stuff/rand_positions/rand_pos3"), NodePath("../outside_stuff/rand_positions/rand_pos4"), NodePath("../outside_stuff/rand_positions/rand_pos5"), NodePath("../outside_stuff/rand_positions/rand_pos6"), NodePath("../outside_stuff/rand_positions/rand_pos7"), NodePath("../outside_stuff/rand_positions/rand_pos8"), NodePath("../outside_stuff/rand_positions/rand_pos9"), NodePath("../outside_stuff/rand_positions/rand_pos10"), NodePath("../outside_stuff/rand_positions/rand_pos19"), NodePath("../outside_stuff/rand_positions/rand_pos20")]
@@ -572,6 +581,53 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1459, -4.19942, 16.2411)
 
 [node name="destination14" parent="." instance=ExtResource("16_lh335")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.65968, -1.33867, 11.284)
+
+[node name="scene_change_trigger" parent="." instance=ExtResource("17_lh335")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.85921, 1.96748, -7.3724)
+scene_name = "ending"
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9985, 2.91731, 26.6839)
+stream = ExtResource("18_u6cys")
+volume_db = 2.0
+unit_size = 30.0
+max_db = 6.0
+autoplay = true
+max_distance = 500.0
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.8733, 2.04285, 25.1908)
+stream = ExtResource("18_u6cys")
+volume_db = 2.0
+unit_size = 30.0
+max_db = 6.0
+pitch_scale = 1.5
+autoplay = true
+max_distance = 500.0
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.3862, 2.91731, 2.07118)
+stream = ExtResource("18_u6cys")
+volume_db = 2.0
+unit_size = 30.0
+max_db = 6.0
+pitch_scale = 2.0
+autoplay = true
+max_distance = 500.0
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D4" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0181, 2.91731, 2.07118)
+stream = ExtResource("18_u6cys")
+volume_db = 2.0
+unit_size = 30.0
+max_db = 6.0
+pitch_scale = 1.25
+autoplay = true
+max_distance = 500.0
+bus = &"SFX"
 
 [editable path="house"]
 [editable path="house/NavigationRegion3D3/lamp2"]

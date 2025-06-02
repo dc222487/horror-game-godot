@@ -16,6 +16,11 @@ func _physics_process(delta: float) -> void:
 				crosshair.visible = true 
 			if Input.is_action_just_pressed("interact"):
 				hit.pickup_key()
+		elif hit.name == "money":
+			if !crosshair.visible:
+				crosshair.visible = true 
+			if Input.is_action_just_pressed("interact"):
+				hit.get_parent().interact()
 		elif hit.name == "light_switch":
 			if !crosshair.visible:
 				crosshair.visible = true 

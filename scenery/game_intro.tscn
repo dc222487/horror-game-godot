@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bbuof2ti8xj4b"]
+[gd_scene load_steps=29 format=3 uid="uid://bbuof2ti8xj4b"]
 
 [ext_resource type="Texture2D" uid="uid://b6gwu3hr7cw4t" path="res://textures/grass.png" id="1_4h3u4"]
 [ext_resource type="Script" uid="uid://b0rq3qtlufr2m" path="res://general_scripts/game_intro.gd" id="1_8u8ww"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://wcmgemp4ivjk" path="res://scenery/tree.tscn" id="3_mr4hj"]
 [ext_resource type="PackedScene" uid="uid://co87ftfpmy1af" path="res://scenery/street_light.tscn" id="4_nihv7"]
 [ext_resource type="PackedScene" uid="uid://bbedxq700r0k6" path="res://scenery/cutscene_ui.tscn" id="6_hw0kw"]
+[ext_resource type="AudioStream" uid="uid://dlt1wugm2ujao" path="res://sounds/34338__erh__wind.wav" id="7_qjkrc"]
 
 [sub_resource type="Gradient" id="Gradient_mr4hj"]
 colors = PackedColorArray(0.230315, 0.230315, 0.230315, 1, 0.621524, 0.621524, 0.621524, 1)
@@ -90,6 +91,33 @@ volumetric_fog_temporal_reprojection_enabled = false
 adjustment_enabled = true
 adjustment_color_correction = SubResource("GradientTexture1D_5mrsh")
 
+[sub_resource type="Animation" id="Animation_nihv7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("car:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-3.344, 1.408, 65.359)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("cutscene_cam:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 2.18166, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_mr4hj"]
 resource_name = "cutscene"
 length = 9.0
@@ -116,33 +144,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 2.18166, 0), Vector3(0, 2.18166, 0), Vector3(0, 1.09956, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_nihv7"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("car:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-3.344, 1.408, 65.359)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("cutscene_cam:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 2.18166, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8u8ww"]
@@ -309,7 +310,7 @@ transform = Transform3D(0.71798, 0, 0.414225, 0, 0.828901, 0, -0.414225, 0, 0.71
 transform = Transform3D(-0.157636, 0, 0.813774, 0, 0.828901, 0, -0.813774, 0, -0.157636, -19.6061, 0, -43.9753)
 
 [node name="cutscene_cam" type="Camera3D" parent="."]
-transform = Transform3D(-0.573576, 0, 0.819152, 0, 1, 0, -0.819152, 0, -0.573576, 8.2058, 2.27465, 14.5013)
+transform = Transform3D(-0.573575, 0, 0.819153, 0, 1, 0, -0.819153, 0, -0.573575, 8.2058, 2.27465, 14.5013)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -340,3 +341,46 @@ material_override = SubResource("StandardMaterial3D_nihv7")
 mesh = SubResource("QuadMesh_8u8ww")
 
 [node name="cutscene_ui" parent="." instance=ExtResource("6_hw0kw")]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.6881, 2.91731, 47.0995)
+stream = ExtResource("7_qjkrc")
+volume_db = 2.0
+unit_size = 30.0
+max_db = 6.0
+autoplay = true
+max_distance = 500.0
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.6881, 2.91731, -36.3904)
+stream = ExtResource("7_qjkrc")
+volume_db = 2.0
+unit_size = 30.0
+max_db = 6.0
+pitch_scale = 1.5
+autoplay = true
+max_distance = 500.0
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D4" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.0263, 2.91731, -36.3904)
+stream = ExtResource("7_qjkrc")
+volume_db = 2.0
+unit_size = 30.0
+max_db = 6.0
+pitch_scale = 2.0
+autoplay = true
+max_distance = 500.0
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D5" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.0263, 2.91731, 34.2759)
+stream = ExtResource("7_qjkrc")
+volume_db = 2.0
+unit_size = 30.0
+max_db = 6.0
+pitch_scale = 1.25
+autoplay = true
+max_distance = 500.0
+bus = &"SFX"

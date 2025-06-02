@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dn5vewdraoj0y"]
+[gd_scene load_steps=10 format=3 uid="uid://dn5vewdraoj0y"]
 
 [ext_resource type="Script" uid="uid://ccyr4lhei3lyb" path="res://player/player.gd" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://brauj5vs7d5ei" path="res://player/fp_cam.gd" id="2_rkbax"]
 [ext_resource type="Script" uid="uid://dqd8kijmb3wg1" path="res://player/player_interact.gd" id="3_g1dw6"]
+[ext_resource type="AudioStream" uid="uid://c1fg08by52k4x" path="res://sounds/670102__mikefozzy98__cloth-footstep-3.wav" id="3_hg6s5"]
 [ext_resource type="Script" uid="uid://bpv0yped1lk0t" path="res://player/fov.gd" id="3_qjkh3"]
 [ext_resource type="PackedScene" uid="uid://bnvj5la80lo4b" path="res://ui/player_ui.tscn" id="4_yw30f"]
+[ext_resource type="AudioStream" uid="uid://bhctx16ci6rss" path="res://sounds/514254__jtn191__footstep4.wav" id="6_g6k8r"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
 radius = 0.3
@@ -17,6 +19,7 @@ collision_layer = 3
 collision_mask = 3
 floor_max_angle = 1.13446
 script = ExtResource("1_oul6g")
+footstep_sounds = Array[AudioStream]([ExtResource("6_g6k8r"), ExtResource("3_hg6s5")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_kqu6x")
@@ -38,3 +41,9 @@ collision_mask = 3
 script = ExtResource("3_g1dw6")
 
 [node name="player_ui" parent="." instance=ExtResource("4_yw30f")]
+
+[node name="feet" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1.0268, 0)
+stream = ExtResource("6_g6k8r")
+max_distance = 30.0
+bus = &"SFX"

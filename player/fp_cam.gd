@@ -7,6 +7,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("flashlight"):
+		get_tree().current_scene.get_node("flashlight/sound").play()
 		get_tree().current_scene.get_node("flashlight").visible = !get_tree().current_scene.get_node("flashlight").visible
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
