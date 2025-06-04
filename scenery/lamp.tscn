@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://c5nxkuaosqlv1"]
+[gd_scene load_steps=11 format=3 uid="uid://c5nxkuaosqlv1"]
 
 [ext_resource type="Texture2D" uid="uid://dedufelbuu4t" path="res://textures/carpet.png" id="1_nndxe"]
 [ext_resource type="Script" uid="uid://dlsiiaub3ig3i" path="res://general_scripts/lamp.gd" id="1_w4qcr"]
 [ext_resource type="Material" uid="uid://du840bubxp04p" path="res://materials/drawers.tres" id="2_w4qcr"]
 [ext_resource type="Texture2D" uid="uid://g1yi3ug6vfnh" path="res://textures/carpet_normalmap2.png" id="3_vd3lh"]
+[ext_resource type="AudioStream" uid="uid://c4b2c2h0t57ae" path="res://sounds/218115__mastersdisaster__switch-on-livingroom.wav" id="5_hhesg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vd3lh"]
 albedo_color = Color(0.855152, 0.604872, 0.595585, 1)
@@ -61,3 +62,8 @@ omni_range = 3.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="light_switch"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.306091, 0.000976563)
 shape = SubResource("BoxShape3D_hhesg")
+
+[node name="sound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_hhesg")
+max_distance = 15.0
+bus = &"SFX"

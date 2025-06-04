@@ -3,7 +3,7 @@ extends RayCast3D
 @onready var crosshair = get_parent().get_parent().get_node("player_ui/CanvasLayer/crosshair")
 @onready var player_ui = get_parent().get_parent().get_node("player_ui")
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if is_colliding():
 		var hit = get_collider()
 		if hit.name == "safe":

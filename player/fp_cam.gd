@@ -5,7 +5,7 @@ var sensitivity = 0.2
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("flashlight"):
 		get_tree().current_scene.get_node("flashlight/sound").play()
 		get_tree().current_scene.get_node("flashlight").visible = !get_tree().current_scene.get_node("flashlight").visible

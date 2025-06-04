@@ -18,8 +18,11 @@ func _ready() -> void:
 func toggle_light():
 	on = !on 
 	if on:
+		$sound.pitch_scale = 1.0
 		$lamp_head.material_override = on_mat
 	
 	if !on:
+		$sound.pitch_scale = 0.8
 		$lamp_head.material_override = off_mat
+	$sound.play()
 	$OmniLight3D.visible = on 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=4 uid="uid://cx7vw803vq5lc"]
+[gd_scene load_steps=105 format=4 uid="uid://cx7vw803vq5lc"]
 
 [ext_resource type="PackedScene" uid="uid://drc4dprluinkm" path="res://scenery/stairs.tscn" id="1_3fs81"]
 [ext_resource type="Material" uid="uid://cop7uvg7pfinv" path="res://materials/house_material.tres" id="1_cdgek"]
@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://13q05bqj65w" path="res://textures/tofu.png" id="10_ccgrf"]
 [ext_resource type="Texture2D" uid="uid://dfpbujbyjotib" path="res://textures/sea.png" id="11_h4qed"]
 [ext_resource type="PackedScene" uid="uid://bj41bdwerkjwg" path="res://scenery/closet.tscn" id="12_h57wj"]
+[ext_resource type="AudioStream" uid="uid://dbxieygnl840l" path="res://sounds/346211__inspectorj__door-squeak-normal-e.wav" id="12_id1qo"]
+[ext_resource type="AudioStream" uid="uid://dcqkh8qa0cwh2" path="res://sounds/411791__inspectorj__door-wooden-close-a-h1.wav" id="13_0cqm8"]
 [ext_resource type="PackedScene" uid="uid://bhsp5yor1wlfu" path="res://scenery/tv.tscn" id="13_ehtd8"]
 [ext_resource type="Texture2D" uid="uid://736ilwtw6d4e" path="res://textures/Sprite-0001.png" id="14_0xgrt"]
 [ext_resource type="Texture2D" uid="uid://npl12ajd6whk" path="res://textures/dirty_carpet.webp" id="14_14o1x"]
@@ -505,7 +507,7 @@ transform = Transform3D(2.60426, 0, 0, 0, 2.41661, 0, 0, 0, 1.83419, -16.6577, -
 [node name="light_switches" type="Node3D" parent="."]
 
 [node name="light_switch" parent="light_switches" node_paths=PackedStringArray("light_bulb") instance=ExtResource("20_41tgb")]
-transform = Transform3D(0.452429, 0, 0, 0, 0.391976, 0, 0, 0, 0.452429, 10.9566, -0.885612, -13.0238)
+transform = Transform3D(0.452429, 0, 0, 0, 0.391976, 0, 0, 0, 0.452429, 10.9566, -0.885612, -13.153)
 light_bulb = NodePath("../../lights/lightbulb10")
 
 [node name="light_switch10" parent="light_switches" node_paths=PackedStringArray("light_bulb") instance=ExtResource("20_41tgb")]
@@ -622,6 +624,18 @@ shape = SubResource("BoxShape3D_uuwef")
 transform = Transform3D(0.641322, 0, 0, 0, 0.165867, 0, 0, 0, 0.216826, 0, 0.142535, -4.61712)
 material_override = SubResource("StandardMaterial3D_ipmbr")
 mesh = SubResource("BoxMesh_id1qo")
+
+[node name="open" type="AudioStreamPlayer3D" parent="trapdoor/trapdoor_hinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.684151, 0, 0)
+stream = ExtResource("12_id1qo")
+max_distance = 30.0
+bus = &"SFX"
+
+[node name="close" type="AudioStreamPlayer3D" parent="trapdoor/trapdoor_hinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.684151, 0, 0)
+stream = ExtResource("13_0cqm8")
+max_distance = 30.0
+bus = &"SFX"
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0150182, -4.76837e-07, 0.00334263)

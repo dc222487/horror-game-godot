@@ -114,12 +114,14 @@ skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/Do
 [node name="open" type="AudioStreamPlayer3D" parent="hinge"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.684151, 0, 0)
 stream = ExtResource("5_4owcv")
+pitch_scale = 1.8
 max_distance = 30.0
 bus = &"SFX"
 
 [node name="close" type="AudioStreamPlayer3D" parent="hinge"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.684151, 0, 0)
 stream = ExtResource("6_ogd0u")
+pitch_scale = 0.4
 max_distance = 30.0
 bus = &"SFX"
 

@@ -204,10 +204,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.80522, 1.29655, 11.8313)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.54231, 1.29176, 11.8313)
 
 [node name="rand_pos7" type="Node3D" parent="outside_stuff/rand_positions"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.05214, 1.22975, 17.3178)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.05214, 1.30653, 17.3178)
 
 [node name="rand_pos8" type="Node3D" parent="outside_stuff/rand_positions"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.05214, 1.22975, 18.6781)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.05214, 1.24805, 18.6419)
 
 [node name="rand_pos9" type="Node3D" parent="outside_stuff/rand_positions"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.05529, 1.22975, 20.7051)
@@ -500,9 +500,6 @@ shadow_enabled = true
 [node name="house" parent="." instance=ExtResource("3_cwqvt")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3.34797, 2.6697, 14.56)
 
-[node name="trapdoor_hinge" parent="house/trapdoor" index="3"]
-locked = false
-
 [node name="task_trigger" parent="." instance=ExtResource("4_5mrsh")]
 transform = Transform3D(1.4579, 0, 0, 0, 3.33332, 0, 0, 0, 1, 3.34028, 1.3885, 8.38317)
 task_text = "Find your money"
@@ -518,7 +515,7 @@ positions = [NodePath("../outside_stuff/rand_positions/rand_pos"), NodePath("../
 
 [node name="flashlight" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5088, -0.46)
-light_energy = 5.0
+light_energy = 2.0
 spot_range = 15.0
 spot_angle = 35.0
 script = ExtResource("10_ukwr8")

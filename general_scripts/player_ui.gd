@@ -22,12 +22,20 @@ func _ready() -> void:
 	print(safe_password)
 	await get_tree().create_timer(1.1, false).timeout
 	$fade_ui.visible = false
+
+func play_hover():
+	$hover.pitch_scale = rng.randf_range(0.75, 1.25)
+	$hover.play()
+
 func resume_game():
+	$interact.play()
 	get_tree().paused = false 
 	$pause_menu.visible = false 
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func quit_game():
+	$interact.play()
+	await get_tree().create_timer(0.5, true).timeout
 	get_tree().quit()
 
 func open_safe_password():
@@ -37,19 +45,22 @@ func open_safe_password():
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func confirm_password():
+	$interact.play()
 	if $safe_ui/password.text == safe_password:
 		safe_anim.play("open")
 		safe_interactable = false 
 		exit_safe()
 func exit_safe():
+	$interact.play()
 	$safe_ui.visible = false
 	get_tree().paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		
 func set_task(task_text: String):
+	$task_sound.play()
 	$task_ui/task_text.text = task_text
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause") and !$safe_ui.visible:
 		$pause_menu.visible = !$pause_menu.visible 
 		get_tree().paused = $pause_menu.visible

@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dkifaayhwngfq"]
+[gd_scene load_steps=8 format=3 uid="uid://dkifaayhwngfq"]
 
 [ext_resource type="Script" uid="uid://bpoouy8oibt5x" path="res://general_scripts/light_switch.gd" id="1_3p06s"]
+[ext_resource type="AudioStream" uid="uid://c4b2c2h0t57ae" path="res://sounds/218115__mastersdisaster__switch-on-livingroom.wav" id="2_ilde7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ccfx"]
 emission_enabled = true
@@ -40,3 +41,8 @@ mesh = SubResource("BoxMesh_3p06s")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="light_switch"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0113831, 0.0275879, 0.0595703)
 shape = SubResource("BoxShape3D_ilde7")
+
+[node name="sound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_ilde7")
+max_distance = 15.0
+bus = &"SFX"

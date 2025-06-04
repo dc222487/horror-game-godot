@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 @export var patrol_destinations: Array[Node3D]
 @onready var player = get_tree().current_scene.get_node("player") 
-var speed = 1.0
+var speed = 2.0
 @onready var rng = RandomNumberGenerator.new()
 var destination 
 var chasing = false 
@@ -10,7 +10,18 @@ var destination_value
 var killed = false 
 var chase_timer = 0.0
 var idle = false
- 
+@export var footstep_sounds: Array[AudioStream]
+
+
+func footsteps():
+	if !chasing and $feet.pitch_scale != 1.0:
+		$feet.pitch_scale = 1.0
+	elif chasing and $feet.pitch_scale != 1.5:
+		$feet.pitch_scale = 1.5
+	if !$feet.playing:
+		$feet.stream = footstep_sounds[rng.randi_range(0, footstep_sounds.size() - 1)]
+		$feet.play()
+		
 func _ready() -> void:
 	$monster_enemy/AnimationPlayer.play("idle") 
 	pick_destination()
@@ -22,11 +33,13 @@ func stop_enemy():
 
 func _process(delta: float) -> void:
 	if !killed:
+		if speed > 0:
+			footsteps()
 		if !chasing: 
 			if $monster_enemy/AnimationPlayer.speed_scale != 1:
 				$monster_enemy/AnimationPlayer.speed_scale = 1
-			if speed != 1.0 and !idle:
-				speed = 1.0
+			if speed != 2.0 and !idle:
+				speed = 2.0
 		if chasing:
 			if $monster_enemy/AnimationPlayer.speed_scale != 2:
 				$monster_enemy/AnimationPlayer.speed_scale = 2
@@ -69,7 +82,8 @@ func chase_player(chasecast: RayCast3D):
 				chasing = true 
 				destination = player
 
-func _physics_process(delta: float) -> void:
+
+func _physics_process(_delta: float) -> void:
 	if !killed:
 		if chasing:
 			kill_player()
@@ -88,7 +102,7 @@ func _physics_process(delta: float) -> void:
 func pick_destination(dont_choose = null):
 	if !chasing and !killed:
 		$monster_enemy/AnimationPlayer.play("walk") 
-		speed = 1.0
+		speed = 2.0
 		idle = false 
 		var num = rng.randi_range(0, patrol_destinations.size() - 1)
 		destination_value = num

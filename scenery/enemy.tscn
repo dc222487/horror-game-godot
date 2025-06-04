@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bodmi2io4ofu7"]
+[gd_scene load_steps=8 format=3 uid="uid://bodmi2io4ofu7"]
 
 [ext_resource type="Script" uid="uid://bs532da08ymec" path="res://general_scripts/enemy.gd" id="1_niajt"]
 [ext_resource type="PackedScene" uid="uid://d4dx8ccyoqcc1" path="res://scenery/monster_enemy.tscn" id="2_0y524"]
+[ext_resource type="AudioStream" uid="uid://dmo5od78lrbnv" path="res://sounds/566180__scholzi982__footstep_carpet_01.wav" id="2_qjjs4"]
+[ext_resource type="AudioStream" uid="uid://bhctx16ci6rss" path="res://sounds/514254__jtn191__footstep4.wav" id="3_yjxpk"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_0y524"]
 
@@ -11,6 +13,7 @@
 
 [node name="enemy" type="CharacterBody3D"]
 script = ExtResource("1_niajt")
+footstep_sounds = Array[AudioStream]([ExtResource("2_qjjs4"), ExtResource("3_yjxpk")])
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00219, 0)
@@ -61,17 +64,20 @@ mesh = SubResource("BoxMesh_niajt")
 [node name="monster_enemy" parent="." instance=ExtResource("2_0y524")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.752314, 0)
 
-[node name="head" parent="monster_enemy" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7613, 0)
-
-[node name="lower_arm" parent="monster_enemy/body/upper_r_arm" index="1"]
-transform = Transform3D(0.893561, 0.087405, 0.440351, 0.087405, 0.928225, -0.361605, -0.440351, 0.361605, 0.821786, 1.17414, 0, 0)
+[node name="upper_r_arm" parent="monster_enemy/body" index="1"]
+transform = Transform3D(0.633381, 0.77384, 0, -0.77384, 0.633381, 0, 0, 0, 1, 0.497729, -0.230502, 0.0001205)
 
 [node name="lower_arm" parent="monster_enemy/body/upper_l_arm" index="1"]
-transform = Transform3D(0.96132, -0.035785, -0.273098, -0.035785, 0.966892, -0.252661, 0.273098, 0.252661, 0.928213, -1.2041, -0.00764406, 0)
+transform = Transform3D(0.96132, -0.0357849, -0.273097, -0.035785, 0.966892, -0.252661, 0.273097, 0.252661, 0.928213, -1.2041, -0.00764406, 0)
 
 [node name="jumpscare_cam" type="Camera3D" parent="."]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 1.61025, -1.11006)
+transform = Transform3D(-1, 0, -2.53518e-06, 0, 1, 0, 2.53518e-06, 0, -1, 0, 1.61025, -1.11006)
+
+[node name="feet" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0203053, 0)
+stream = ExtResource("3_yjxpk")
+max_distance = 30.0
+bus = &"SFX"
 
 [connection signal="velocity_computed" from="NavigationAgent3D" to="." method="compute_velocity"]
 

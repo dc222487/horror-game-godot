@@ -256,3 +256,10 @@ skeleton = NodePath("")
 libraries = {
 &"": SubResource("AnimationLibrary_n6xfs")
 }
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 10.0
+distance_fade_shadow = 5.0
+distance_fade_length = 2.0

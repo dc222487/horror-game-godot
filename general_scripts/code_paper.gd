@@ -12,7 +12,7 @@ func hit_obj(body):
 func pickup_key():
 	door.locked = false 
 	queue_free()
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if pos_obj != null: 
 		global_transform.origin = pos_obj.global_transform.origin 
 

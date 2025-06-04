@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://bnvj5la80lo4b"]
+[gd_scene load_steps=12 format=3 uid="uid://bnvj5la80lo4b"]
 
 [ext_resource type="Texture2D" uid="uid://bjgs7af1jyxek" path="res://textures/crosshair.png" id="1_cfom6"]
 [ext_resource type="Script" uid="uid://dg2u8okb104in" path="res://general_scripts/player_ui.gd" id="1_ehg4m"]
 [ext_resource type="PackedScene" uid="uid://so07d5tab0vt" path="res://ui/pause_menu.tscn" id="3_iwa1g"]
 [ext_resource type="PackedScene" uid="uid://gtjg5j1md1k2" path="res://ui/task_ui.tscn" id="3_lp0io"]
 [ext_resource type="PackedScene" uid="uid://csv2u4nuw7iop" path="res://ui/safe_ui.tscn" id="4_lp0io"]
+[ext_resource type="AudioStream" uid="uid://cf6bgx7t82yde" path="res://sounds/657947__lilmati__horror-inspect-sound-ui-or-in-game-notification-01.wav" id="6_hff70"]
+[ext_resource type="AudioStream" uid="uid://bb1mipoly5ufs" path="res://sounds/370961__cabled_mess__click-03_minimal-ui-sounds.wav" id="7_f7sc3"]
+[ext_resource type="AudioStream" uid="uid://2fapb1g4wyd2" path="res://sounds/750607__deadrobotmusic__notification-sound-1.wav" id="8_f7sc3"]
 
 [sub_resource type="Animation" id="Animation_ykvpg"]
 length = 0.001
@@ -81,9 +84,23 @@ libraries = {
 &"": SubResource("AnimationLibrary_hff70")
 }
 
+[node name="interact" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_hff70")
+
+[node name="hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_f7sc3")
+
+[node name="task_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_f7sc3")
+
 [connection signal="pressed" from="safe_ui/confirm" to="." method="confirm_password"]
 [connection signal="pressed" from="safe_ui/back" to="." method="exit_safe"]
+[connection signal="mouse_entered" from="pause_menu/resume" to="." method="play_hover"]
 [connection signal="pressed" from="pause_menu/resume" to="." method="resume_game"]
+[connection signal="mouse_entered" from="pause_menu/settings" to="." method="play_hover"]
+[connection signal="mouse_entered" from="pause_menu/controls" to="." method="play_hover"]
+[connection signal="mouse_entered" from="pause_menu/main_menu" to="." method="play_hover"]
+[connection signal="mouse_entered" from="pause_menu/quit_game" to="." method="play_hover"]
 [connection signal="pressed" from="pause_menu/quit_game" to="." method="quit_game"]
 
 [editable path="safe_ui"]

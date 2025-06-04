@@ -7,12 +7,12 @@ const JUMP_VELOCITY = 4.5
 @onready var rng = RandomNumberGenerator.new()
 var crouching = false 
 
-func foosteps():
+func footsteps():
 	if !$feet.playing:
 		$feet.stream = footstep_sounds[rng.randi_range(0, footstep_sounds.size() - 1)]
 		$feet.play()
 		
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("crouch"):
 		crouching = !crouching
 	if crouching and SPEED != 1.25:
@@ -40,7 +40,8 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("left", "right", "forward", "backward")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
-		foosteps()
+		if is_on_floor():
+			footsteps()
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
 	else:
