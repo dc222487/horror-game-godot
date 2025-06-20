@@ -1,10 +1,12 @@
-[gd_scene load_steps=40 format=4 uid="uid://bxg7dl5n12tpp"]
+[gd_scene load_steps=42 format=4 uid="uid://bxg7dl5n12tpp"]
 
 [ext_resource type="Texture2D" uid="uid://dv6b57x6q1r5d" path="res://textures/wood.png" id="1_2uhxk"]
 [ext_resource type="Texture2D" uid="uid://dloydsv2lqim4" path="res://textures/wood_normalmap.png" id="2_a0fp6"]
 [ext_resource type="Material" uid="uid://du840bubxp04p" path="res://materials/drawers.tres" id="2_sw6mj"]
 [ext_resource type="Material" uid="uid://cearpyk8bcjj" path="res://materials/metal.tres" id="3_a0fp6"]
 [ext_resource type="Script" uid="uid://bqsj2y8autdoy" path="res://general_scripts/door.gd" id="3_sw6mj"]
+[ext_resource type="AudioStream" uid="uid://tvq4ljo5qxwt" path="res://sounds/346251__jgarc__open-drawer-24-bits-48-khz.wav" id="6_yy2xa"]
+[ext_resource type="AudioStream" uid="uid://c7ddq82ocaf2n" path="res://sounds/444415__mtjohnson__closing-drawer.wav" id="7_2t1xd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pud3n"]
 albedo_color = Color(0.556953, 0.556953, 0.556953, 1)
@@ -425,6 +427,20 @@ libraries = {
 &"": SubResource("AnimationLibrary_a0fp6")
 }
 
+[node name="open" type="AudioStreamPlayer3D" parent="drawer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08293, 0.160138, 1.26571)
+stream = ExtResource("6_yy2xa")
+pitch_scale = 1.8
+max_distance = 30.0
+bus = &"SFX"
+
+[node name="close" type="AudioStreamPlayer3D" parent="drawer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08293, 0.160138, 1.26571)
+stream = ExtResource("7_2t1xd")
+pitch_scale = 1.4
+max_distance = 30.0
+bus = &"SFX"
+
 [node name="drawer2" type="Node3D" parent="."]
 script = ExtResource("3_sw6mj")
 
@@ -455,6 +471,20 @@ skeleton = NodePath("")
 libraries = {
 &"": SubResource("AnimationLibrary_a0fp6")
 }
+
+[node name="open" type="AudioStreamPlayer3D" parent="drawer2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08293, 0.160138, -1.24166)
+stream = ExtResource("6_yy2xa")
+pitch_scale = 1.8
+max_distance = 30.0
+bus = &"SFX"
+
+[node name="close" type="AudioStreamPlayer3D" parent="drawer2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08293, 0.160138, -1.24166)
+stream = ExtResource("7_2t1xd")
+pitch_scale = 1.4
+max_distance = 30.0
+bus = &"SFX"
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 

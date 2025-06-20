@@ -48,6 +48,7 @@ func confirm_password():
 	$interact.play()
 	if $safe_ui/password.text == safe_password:
 		safe_anim.play("open")
+		safe_anim.get_parent().get_node("hinge/open").play()
 		safe_interactable = false 
 		exit_safe()
 func exit_safe():

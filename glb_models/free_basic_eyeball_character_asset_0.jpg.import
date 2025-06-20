@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hb8sqxkgctap"
-path.s3tc="res://.godot/imported/skin.jpg-3fd949c0653f67a9f51f186370cb02be.s3tc.ctex"
+uid="uid://dnsapv485k0ew"
+path.s3tc="res://.godot/imported/free_basic_eyeball_character_asset_0.jpg-2f2af9e9b6a28a6e54117eb5c8802151.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "e2d5ee04a00c3d33162e94b177a2280f"
+}
 
 [deps]
 
-source_file="res://textures/skin.jpg"
-dest_files=["res://.godot/imported/skin.jpg-3fd949c0653f67a9f51f186370cb02be.s3tc.ctex"]
+source_file="res://glb_models/free_basic_eyeball_character_asset_0.jpg"
+dest_files=["res://.godot/imported/free_basic_eyeball_character_asset_0.jpg-2f2af9e9b6a28a6e54117eb5c8802151.s3tc.ctex"]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=4 uid="uid://cx7vw803vq5lc"]
+[gd_scene load_steps=107 format=4 uid="uid://cx7vw803vq5lc"]
 
 [ext_resource type="PackedScene" uid="uid://drc4dprluinkm" path="res://scenery/stairs.tscn" id="1_3fs81"]
 [ext_resource type="Material" uid="uid://cop7uvg7pfinv" path="res://materials/house_material.tres" id="1_cdgek"]
@@ -46,6 +46,8 @@
 [ext_resource type="Texture2D" uid="uid://dfow4obopmqrc" path="res://textures/wood_normalmap2.png" id="41_lkq6o"]
 [ext_resource type="PackedScene" uid="uid://dutv0agmoa84d" path="res://scenery/bin.tscn" id="43_yrxfy"]
 [ext_resource type="PackedScene" uid="uid://c2k5b4lh5vbq3" path="res://scenery/money.tscn" id="44_w78tr"]
+[ext_resource type="PackedScene" uid="uid://b2rtd0pihtrga" path="res://scenery/female_head.tscn" id="47_0cqm8"]
+[ext_resource type="PackedScene" uid="uid://ftjb1aq7pnhy" path="res://scenery/hand.tscn" id="48_d3sub"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ipmbr"]
 albedo_color = Color(0, 0, 0, 1)
@@ -956,16 +958,16 @@ transform = Transform3D(1.14069, 0, 1.17813, 0, 1.63986, 0, -1.17813, 0, 1.14069
 transform = Transform3D(1.44384, 0, 0.77749, 0, 1.63986, 0, -0.77749, 0, 1.44384, 18.6684, -11.8748, 10.4258)
 
 [node name="crate7" parent="NavigationRegion3D3/crates" instance=ExtResource("32_jslb4")]
-transform = Transform3D(1.63986, 0, 0, 0, 1.63986, 0, 0, 0, 1.63986, 19.0731, -10.1432, 11.5516)
+transform = Transform3D(1.63986, 0, 0, 0, 1.63986, 0, 0, 0, 1.63986, 19.0731, -10.2504, 11.5516)
 
 [node name="crate8" parent="NavigationRegion3D3/crates" instance=ExtResource("32_jslb4")]
-transform = Transform3D(1.53336, 0, 0.581337, 0, 1.63986, 0, -0.581337, 0, 1.53336, 17.1704, -10.1432, 11.8086)
+transform = Transform3D(1.53336, 0, 0.581337, 0, 1.63986, 0, -0.581337, 0, 1.53336, 17.1704, -10.2841, 11.8086)
 
 [node name="crate9" parent="NavigationRegion3D3/crates" instance=ExtResource("32_jslb4")]
 transform = Transform3D(1.63986, 0, 0, 0, 1.63986, 0, 0, 0, 1.63986, 16.4059, -11.916, 12.3818)
 
 [node name="crate10" parent="NavigationRegion3D3/crates" instance=ExtResource("32_jslb4")]
-transform = Transform3D(1.63986, 0, 0, 0, 1.63986, 0, 0, 0, 1.63986, 19.0518, -8.51513, 12.3818)
+transform = Transform3D(1.63986, 0, 0, 0, 1.63986, 0, 0, 0, 1.63986, 19.0518, -8.60239, 12.3818)
 
 [node name="crate11" parent="NavigationRegion3D3/crates" instance=ExtResource("32_jslb4")]
 transform = Transform3D(1.63986, 0, 0, 0, 1.63986, 0, 0, 0, 1.63986, 18.0144, -11.8846, 12.3818)
@@ -1106,6 +1108,30 @@ mesh = SubResource("BoxMesh_uuwef")
 
 [node name="money" parent="." instance=ExtResource("44_w78tr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.8913, -14.1414, 1.21103)
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("47_0cqm8")]
+transform = Transform3D(-5.7541, 0, -4.54122, 0, 7.33024, 0, 4.54122, 0, -5.7541, 17.6472, -10.89, 10.8807)
+
+[node name="Sketchfab_Scene2" parent="." instance=ExtResource("47_0cqm8")]
+transform = Transform3D(-5.7541, 0, -4.54122, 0, 7.33024, 0, 4.54122, 0, -5.7541, 19.3388, -12.4194, 10.1699)
+
+[node name="Sketchfab_Scene3" parent="." instance=ExtResource("47_0cqm8")]
+transform = Transform3D(3.70438, 0, -6.32534, 2.11623, 6.90782, 1.23935, 5.96083, -2.45243, 3.49091, 16.1288, -10.9433, 12.305)
+
+[node name="Sketchfab_Scene4" parent="." instance=ExtResource("47_0cqm8")]
+transform = Transform3D(3.70438, 0, -6.32534, 1.99104, 6.95762, 1.16603, 6.00381, -2.30735, 3.51608, 15.5088, -12.8234, 11.6042)
+
+[node name="Sketchfab_Scene5" parent="." instance=ExtResource("48_d3sub")]
+transform = Transform3D(2.17679, 0, 0, 0, 2.17679, 0, 0, 0, 2.17679, 16.154, -12.6506, 9.63617)
+
+[node name="Sketchfab_Scene6" parent="." instance=ExtResource("48_d3sub")]
+transform = Transform3D(1.94244, -0.976851, -0.105471, 0.975415, 1.9453, -0.0529632, 0.118022, 0, 2.17359, 16.4216, -12.7696, 10.4568)
+
+[node name="Sketchfab_Scene7" parent="." instance=ExtResource("48_d3sub")]
+transform = Transform3D(0.13205, -0.322848, -2.14866, 1.18801, 1.81308, -0.199414, 1.81923, -1.16056, 0.286185, 18.0035, -15.2765, 8.52023)
+
+[node name="Sketchfab_Scene8" parent="." instance=ExtResource("48_d3sub")]
+transform = Transform3D(-0.286803, 0.420701, 2.11641, -1.16017, 1.7701, -0.509082, -1.81939, -1.19506, -0.00899854, 16.6748, -10.5762, 13.9019)
 
 [editable path="NavigationRegion3D3/lamp2"]
 [editable path="NavigationRegion3D3/bin3"]

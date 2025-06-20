@@ -1,9 +1,11 @@
-[gd_scene load_steps=77 format=4 uid="uid://dd5lxmbpyr854"]
+[gd_scene load_steps=79 format=4 uid="uid://dd5lxmbpyr854"]
 
 [ext_resource type="Material" uid="uid://dw71hq7u034ce" path="res://materials/metal_2.tres" id="2_mg4qc"]
 [ext_resource type="Texture2D" uid="uid://bllk7jg3u8c2o" path="res://textures/gas-stove-texture.jpg" id="3_2p8xg"]
 [ext_resource type="Material" uid="uid://bv1jove6robnj" path="res://materials/metal_3.tres" id="3_ba50e"]
 [ext_resource type="Script" uid="uid://bqsj2y8autdoy" path="res://general_scripts/door.gd" id="4_mg4qc"]
+[ext_resource type="AudioStream" uid="uid://yoat15yvkgcb" path="res://sounds/372542__glitchedtones__oven-door-close.wav" id="5_311eu"]
+[ext_resource type="AudioStream" uid="uid://caned8p2unfom" path="res://sounds/372541__glitchedtones__oven-door-open.wav" id="6_orhvq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a10so"]
 resource_name = "Material"
@@ -733,21 +735,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_xm4at")
 
-[sub_resource type="Animation" id="Animation_2p8xg"]
-resource_name = "open"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, -1.32645)]
-}
-
 [sub_resource type="Animation" id="Animation_mg4qc"]
 length = 0.001
 tracks/0/type = "value"
@@ -761,6 +748,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2p8xg"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -1.32645)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ba50e"]
@@ -917,3 +919,13 @@ skeleton = NodePath("")
 libraries = {
 &"": SubResource("AnimationLibrary_ba50e")
 }
+
+[node name="close" type="AudioStreamPlayer3D" parent="hinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.843514, 0, 0)
+stream = ExtResource("5_311eu")
+pitch_scale = 1.1
+
+[node name="open" type="AudioStreamPlayer3D" parent="hinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.843514, 0, 0)
+stream = ExtResource("6_orhvq")
+pitch_scale = 0.6

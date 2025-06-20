@@ -1,4 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://cvb60ty2q1jo4"]
+[gd_scene load_steps=16 format=3 uid="uid://cvb60ty2q1jo4"]
+
+[ext_resource type="AudioStream" uid="uid://5bhhv13m0cte" path="res://sounds/336758__luminadii__car-drive-by-05.wav" id="1_el0be"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_fnt1q"]
 frequency = 0.1
@@ -155,3 +157,9 @@ light_color = Color(1, 1, 0.905882, 1)
 light_energy = 20.0
 spot_range = 35.0
 spot_angle = 20.0
+
+[node name="sound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("1_el0be")
+autoplay = true
+max_distance = 75.0
+bus = &"SFX"

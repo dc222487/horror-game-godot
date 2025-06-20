@@ -2,21 +2,23 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hb8sqxkgctap"
-path.s3tc="res://.godot/imported/skin.jpg-3fd949c0653f67a9f51f186370cb02be.s3tc.ctex"
+uid="uid://djwy2wenhyxj2"
+path="res://.godot/imported/free_basic_eyeball_character_asset_1.png-4f4c9d282564ea9fc5a2fe452cf830f6.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
+}
+generator_parameters={
+"md5": "62a9d647923f2d606f8ea5696c5a80c8"
 }
 
 [deps]
 
-source_file="res://textures/skin.jpg"
-dest_files=["res://.godot/imported/skin.jpg-3fd949c0653f67a9f51f186370cb02be.s3tc.ctex"]
+source_file="res://glb_models/free_basic_eyeball_character_asset_1.png"
+dest_files=["res://.godot/imported/free_basic_eyeball_character_asset_1.png-4f4c9d282564ea9fc5a2fe452cf830f6.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
@@ -32,4 +34,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

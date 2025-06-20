@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=4 uid="uid://dlikpyu71ahio"]
+[gd_scene load_steps=77 format=4 uid="uid://dlikpyu71ahio"]
 
 [ext_resource type="Material" uid="uid://cop7uvg7pfinv" path="res://materials/house_material.tres" id="1_h8x0a"]
 [ext_resource type="Texture2D" uid="uid://dv6b57x6q1r5d" path="res://textures/wood.png" id="2_1r7l6"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://dloydsv2lqim4" path="res://textures/wood_normalmap.png" id="3_qqtmf"]
 [ext_resource type="Material" uid="uid://du840bubxp04p" path="res://materials/drawers.tres" id="4_h8x0a"]
 [ext_resource type="Material" uid="uid://cearpyk8bcjj" path="res://materials/metal.tres" id="5_1r7l6"]
+[ext_resource type="AudioStream" uid="uid://tvq4ljo5qxwt" path="res://sounds/346251__jgarc__open-drawer-24-bits-48-khz.wav" id="7_qqtmf"]
+[ext_resource type="AudioStream" uid="uid://c7ddq82ocaf2n" path="res://sounds/444415__mtjohnson__closing-drawer.wav" id="8_ucl0d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6pfbw"]
 
@@ -781,6 +783,20 @@ libraries = {
 &"": SubResource("AnimationLibrary_a0fp6")
 }
 
+[node name="open" type="AudioStreamPlayer3D" parent="drawer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08293, 0.160138, 2.67203)
+stream = ExtResource("7_qqtmf")
+pitch_scale = 1.8
+max_distance = 30.0
+bus = &"SFX"
+
+[node name="close" type="AudioStreamPlayer3D" parent="drawer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08293, 0.160138, 2.67203)
+stream = ExtResource("8_ucl0d")
+pitch_scale = 1.4
+max_distance = 30.0
+bus = &"SFX"
+
 [node name="drawer2" type="Node3D" parent="."]
 script = ExtResource("3_8dumg")
 
@@ -811,6 +827,20 @@ skeleton = NodePath("")
 libraries = {
 &"": SubResource("AnimationLibrary_a0fp6")
 }
+
+[node name="open" type="AudioStreamPlayer3D" parent="drawer2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08293, 0.160138, 0.250458)
+stream = ExtResource("7_qqtmf")
+pitch_scale = 1.8
+max_distance = 30.0
+bus = &"SFX"
+
+[node name="close" type="AudioStreamPlayer3D" parent="drawer2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08293, 0.160138, 0.250458)
+stream = ExtResource("8_ucl0d")
+pitch_scale = 1.4
+max_distance = 30.0
+bus = &"SFX"
 
 [node name="hinge" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0548, 0, -1.20443)

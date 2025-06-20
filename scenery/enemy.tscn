@@ -67,6 +67,9 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.752314, 0)
 [node name="upper_r_arm" parent="monster_enemy/body" index="1"]
 transform = Transform3D(0.633381, 0.77384, 0, -0.77384, 0.633381, 0, 0, 0, 1, 0.497729, -0.230502, 0.0001205)
 
+[node name="lower_arm" parent="monster_enemy/body/upper_r_arm" index="1"]
+transform = Transform3D(0.893561, 0.087405, 0.440351, 0.0874051, 0.928225, -0.361605, -0.440351, 0.361605, 0.821786, 1.17414, 0, 0)
+
 [node name="lower_arm" parent="monster_enemy/body/upper_l_arm" index="1"]
 transform = Transform3D(0.96132, -0.0357849, -0.273097, -0.035785, 0.966892, -0.252661, 0.273097, 0.252661, 0.928213, -1.2041, -0.00764406, 0)
 
