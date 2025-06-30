@@ -1,0 +1,329 @@
+[gd_scene load_steps=2 format=3 uid="uid://c38i2lyhjy0xi"]
+
+[ext_resource type="Script" uid="uid://b3gposf1usvlx" path="res://general_scripts/settings.gd" id="1_eio3h"]
+
+[node name="settings" type="CanvasLayer"]
+script = ExtResource("1_eio3h")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1150.0
+offset_bottom = 646.0
+color = Color(0.325129, 0, 0.0323128, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 2.0
+offset_top = 5.0
+offset_right = 1155.0
+offset_bottom = 227.0
+theme_override_font_sizes/normal_font_size = 45
+bbcode_enabled = true
+text = "[center]Settings:"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_left = 15.0
+offset_top = 55.0
+offset_right = 450.0
+offset_bottom = 277.0
+theme_override_font_sizes/normal_font_size = 45
+text = "Visuals:"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+offset_left = 959.0
+offset_top = 71.0
+offset_right = 1394.0
+offset_bottom = 293.0
+theme_override_font_sizes/normal_font_size = 45
+text = "Audio:"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="."]
+offset_left = 883.0
+offset_top = 413.0
+offset_right = 1318.0
+offset_bottom = 635.0
+theme_override_font_sizes/normal_font_size = 45
+text = "Gameplay:"
+
+[node name="scale_text" type="RichTextLabel" parent="."]
+offset_left = 23.0
+offset_top = 115.0
+offset_right = 458.0
+offset_bottom = 163.0
+theme_override_font_sizes/normal_font_size = 25
+text = "3D Scaling:"
+
+[node name="shadow_text" type="RichTextLabel" parent="."]
+offset_left = 368.0
+offset_top = 112.0
+offset_right = 803.0
+offset_bottom = 160.0
+theme_override_font_sizes/normal_font_size = 25
+text = "Shadow Filter Quality:"
+
+[node name="window_text" type="RichTextLabel" parent="."]
+offset_left = 20.0
+offset_top = 188.0
+offset_right = 455.0
+offset_bottom = 236.0
+theme_override_font_sizes/normal_font_size = 25
+text = "Window Mode:"
+
+[node name="aa_text" type="RichTextLabel" parent="."]
+offset_left = 22.0
+offset_top = 363.0
+offset_right = 457.0
+offset_bottom = 411.0
+theme_override_font_sizes/normal_font_size = 25
+text = "Anti-Aliasing:"
+
+[node name="fps_text" type="RichTextLabel" parent="."]
+offset_left = 21.0
+offset_top = 465.0
+offset_right = 456.0
+offset_bottom = 513.0
+theme_override_font_sizes/normal_font_size = 25
+text = "FPS Cap:"
+
+[node name="vsync_text" type="RichTextLabel" parent="."]
+offset_left = 85.0
+offset_top = 304.0
+offset_right = 448.0
+offset_bottom = 352.0
+theme_override_font_sizes/normal_font_size = 25
+text = "V-Sync"
+
+[node name="ssil_text" type="RichTextLabel" parent="."]
+offset_left = 73.0
+offset_top = 575.0
+offset_right = 436.0
+offset_bottom = 623.0
+theme_override_font_sizes/normal_font_size = 25
+text = "SSIL"
+
+[node name="glow_text" type="RichTextLabel" parent="."]
+offset_left = 251.0
+offset_top = 576.0
+offset_right = 614.0
+offset_bottom = 624.0
+theme_override_font_sizes/normal_font_size = 25
+text = "Glow"
+
+[node name="volumetric_text" type="RichTextLabel" parent="."]
+offset_left = 427.0
+offset_top = 578.0
+offset_right = 790.0
+offset_bottom = 626.0
+theme_override_font_sizes/normal_font_size = 25
+text = "Volumetric Fog:"
+
+[node name="volume_text" type="RichTextLabel" parent="."]
+offset_left = 923.0
+offset_top = 142.0
+offset_right = 1140.0
+offset_bottom = 190.0
+theme_override_font_sizes/normal_font_size = 25
+text = "Master Volume:"
+
+[node name="sfx_text" type="RichTextLabel" parent="."]
+offset_left = 963.0
+offset_top = 216.0
+offset_right = 1180.0
+offset_bottom = 264.0
+theme_override_font_sizes/normal_font_size = 25
+text = "SFX Volume:"
+
+[node name="music_text" type="RichTextLabel" parent="."]
+offset_left = 938.0
+offset_top = 312.0
+offset_right = 1155.0
+offset_bottom = 360.0
+theme_override_font_sizes/normal_font_size = 25
+text = "Music Volume:"
+
+[node name="look_text" type="RichTextLabel" parent="."]
+offset_left = 964.0
+offset_top = 485.0
+offset_right = 1181.0
+offset_bottom = 533.0
+theme_override_font_sizes/normal_font_size = 25
+text = "Look Speed:"
+
+[node name="scaling_slider" type="HSlider" parent="."]
+offset_left = 23.0
+offset_top = 133.0
+offset_right = 311.0
+offset_bottom = 186.0
+min_value = 0.25
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="volume_slider" type="HSlider" parent="."]
+offset_left = 834.0
+offset_top = 163.0
+offset_right = 1122.0
+offset_bottom = 216.0
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="sfx_slider" type="HSlider" parent="."]
+offset_left = 832.0
+offset_top = 247.0
+offset_right = 1120.0
+offset_bottom = 300.0
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="music_slider" type="HSlider" parent="."]
+offset_left = 838.0
+offset_top = 333.0
+offset_right = 1126.0
+offset_bottom = 386.0
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="look_slider" type="HSlider" parent="."]
+offset_left = 829.0
+offset_top = 512.0
+offset_right = 1117.0
+offset_bottom = 565.0
+min_value = 0.1
+max_value = 0.5
+step = 0.05
+value = 0.2
+
+[node name="window_mode" type="OptionButton" parent="."]
+offset_left = 23.0
+offset_top = 236.0
+offset_right = 310.0
+offset_bottom = 284.0
+theme_override_font_sizes/font_size = 20
+selected = 1
+item_count = 3
+popup/item_0/text = "Windowed"
+popup/item_0/id = 0
+popup/item_1/text = "Fullscreen"
+popup/item_1/id = 1
+popup/item_2/text = "Exclusive Fullscreen"
+popup/item_2/id = 2
+
+[node name="shadow_button" type="OptionButton" parent="."]
+offset_left = 364.0
+offset_top = 155.0
+offset_right = 651.0
+offset_bottom = 203.0
+theme_override_font_sizes/font_size = 20
+selected = 2
+item_count = 6
+popup/item_0/text = "Hard"
+popup/item_0/id = 0
+popup/item_1/text = "Soft Very Low"
+popup/item_1/id = 1
+popup/item_2/text = "Soft Low"
+popup/item_2/id = 2
+popup/item_3/text = "Soft Medium"
+popup/item_3/id = 3
+popup/item_4/text = "Soft High"
+popup/item_4/id = 4
+popup/item_5/text = "Soft Ultra"
+popup/item_5/id = 5
+
+[node name="aa_button" type="OptionButton" parent="."]
+offset_left = 23.0
+offset_top = 403.0
+offset_right = 310.0
+offset_bottom = 451.0
+theme_override_font_sizes/font_size = 20
+selected = 1
+item_count = 6
+popup/item_0/text = "None"
+popup/item_0/id = 0
+popup/item_1/text = "FXAA"
+popup/item_1/id = 1
+popup/item_2/text = "TAA"
+popup/item_2/id = 2
+popup/item_3/text = "MSAA 2X"
+popup/item_3/id = 3
+popup/item_4/text = "MSAA 4X"
+popup/item_4/id = 4
+popup/item_5/text = "MSAA 8X"
+popup/item_5/id = 5
+
+[node name="fps_button" type="OptionButton" parent="."]
+offset_left = 19.0
+offset_top = 512.0
+offset_right = 306.0
+offset_bottom = 560.0
+theme_override_font_sizes/font_size = 20
+selected = 2
+item_count = 3
+popup/item_0/text = "30FPS"
+popup/item_0/id = 5
+popup/item_1/text = "60FPS"
+popup/item_1/id = 1
+popup/item_2/text = "Uncapped"
+popup/item_2/id = 2
+
+[node name="vsync_button" type="Button" parent="."]
+offset_left = 23.0
+offset_top = 297.0
+offset_right = 69.0
+offset_bottom = 347.0
+theme_override_font_sizes/font_size = 30
+toggle_mode = true
+button_pressed = true
+text = "O"
+
+[node name="ssil_button" type="Button" parent="."]
+offset_left = 22.0
+offset_top = 569.0
+offset_right = 68.0
+offset_bottom = 619.0
+theme_override_font_sizes/font_size = 30
+toggle_mode = true
+button_pressed = true
+text = "O"
+
+[node name="glow_button" type="Button" parent="."]
+offset_left = 193.0
+offset_top = 570.0
+offset_right = 239.0
+offset_bottom = 620.0
+theme_override_font_sizes/font_size = 30
+toggle_mode = true
+button_pressed = true
+text = "O"
+
+[node name="volumetric_button" type="Button" parent="."]
+offset_left = 373.0
+offset_top = 570.0
+offset_right = 419.0
+offset_bottom = 620.0
+theme_override_font_sizes/font_size = 30
+toggle_mode = true
+button_pressed = true
+text = "O"
+
+[node name="x_button" type="Button" parent="."]
+offset_left = 1087.0
+offset_top = 12.0
+offset_right = 1133.0
+offset_bottom = 62.0
+theme_override_font_sizes/font_size = 30
+text = "X"
+
+[connection signal="value_changed" from="scaling_slider" to="." method="scale_3d"]
+[connection signal="value_changed" from="volume_slider" to="." method="set_master_volume"]
+[connection signal="value_changed" from="sfx_slider" to="." method="set_sfx_volume"]
+[connection signal="value_changed" from="music_slider" to="." method="set_music_volume"]
+[connection signal="value_changed" from="look_slider" to="." method="set_look_speed"]
+[connection signal="item_selected" from="window_mode" to="." method="set_window_mode"]
+[connection signal="item_selected" from="shadow_button" to="." method="set_shadows"]
+[connection signal="item_selected" from="aa_button" to="." method="set_aa"]
+[connection signal="item_selected" from="fps_button" to="." method="set_fps_cap"]
+[connection signal="toggled" from="vsync_button" to="." method="set_vsync"]
+[connection signal="toggled" from="ssil_button" to="." method="set_ssil"]
+[connection signal="toggled" from="glow_button" to="." method="set_glow"]
+[connection signal="toggled" from="volumetric_button" to="." method="set_volumetrics"]

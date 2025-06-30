@@ -11,6 +11,8 @@ var safe_interactable = true
 func _ready() -> void:
 	$fade_ui/AnimationPlayer.play("fade")
 	$safe_ui.visible = false 
+	$settings.visible = false
+	$controls.visible  = false
 	$pause_menu.visible = false 
 	set_task("Ring the door bell")
 	var p1 = rng.randi_range(0,9)
@@ -23,6 +25,22 @@ func _ready() -> void:
 	await get_tree().create_timer(1.1, false).timeout
 	$fade_ui.visible = false
 
+func open_settings():
+	$interact.play()
+	$pause_menu.visible = false
+	$settings.visible =  true
+	
+func open_controls():
+	$interact.play()
+	$pause_menu.visible = false
+	$controls.visible = true
+	
+func close_menus():
+	$interact.play()
+	$controls.visible = false
+	$settings.visible = false
+	$pause_menu.visible = true
+	
 func play_hover():
 	$hover.pitch_scale = rng.randf_range(0.75, 1.25)
 	$hover.play()
@@ -62,7 +80,7 @@ func set_task(task_text: String):
 	$task_ui/task_text.text = task_text
 	
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("pause") and !$safe_ui.visible:
+	if Input.is_action_just_pressed("pause") and !$safe_ui.visible and !$settings.visible:
 		$pause_menu.visible = !$pause_menu.visible 
 		get_tree().paused = $pause_menu.visible
 		if get_tree().paused:

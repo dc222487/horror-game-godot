@@ -601,7 +601,6 @@ skeleton = NodePath("../trapdoor_hinge")
 [node name="trapdoor_hinge" type="Node3D" parent="trapdoor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0333912, -4.36386, -4.45831)
 script = ExtResource("40_lkq6o")
-locked = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="trapdoor/trapdoor_hinge"]
 root_node = NodePath("../..")

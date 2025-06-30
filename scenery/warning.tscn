@@ -1,0 +1,104 @@
+[gd_scene load_steps=5 format=3 uid="uid://duoa5v5pybxvq"]
+
+[ext_resource type="Script" uid="uid://dmfmf43idc8qp" path="res://general_scripts/warning.gd" id="1_tg5tj"]
+
+[sub_resource type="Animation" id="Animation_tg5tj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("warning_text:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.858824, 0, 0.137255, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("description:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_iwua5"]
+resource_name = "fade"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("warning_text:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 5, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.858824, 0, 0.137255, 0), Color(0.858824, 0, 0.137255, 1), Color(0.858824, 0, 0.137255, 1), Color(0.858824, 0, 0.137255, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("description:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2.03333, 6, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kn2g5"]
+_data = {
+&"RESET": SubResource("Animation_tg5tj"),
+&"fade": SubResource("Animation_iwua5")
+}
+
+[node name="warning" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tg5tj")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="bg" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1149.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="warning_text" type="RichTextLabel" parent="CanvasLayer"]
+modulate = Color(0.858824, 0, 0.137255, 0)
+offset_top = 76.0
+offset_right = 1151.0
+offset_bottom = 363.0
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[center]WARNING"
+
+[node name="description" type="RichTextLabel" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 3.0
+offset_top = 216.0
+offset_right = 1151.0
+offset_bottom = 547.0
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center]This is a horror game. If you have any health conditions that may affect you in anyway, consider not playing."
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+libraries = {
+&"": SubResource("AnimationLibrary_kn2g5")
+}
